@@ -32,12 +32,13 @@ export const ARTIST = {
   bio: {
     en: 'Roots in French Guiana (Guyane), with Caribbean lineage also traced to Martinique and St. Lucia. US-American on his father\'s side — Chicago. Raised beside the army base in Hessen. Shortlord came up in Hamburg hip-hop from the mid-90s — first heat on 2ruff\'s "Ya Ready?", then gold-era Nana and MTV with The Fight. He helped build the Boogiepark scene, supported Jentown Crhyme / 187 with Rough Trade distribution, and in 2006 founded Chosenfewrecords, which he still owns. From the underground out — always independent.',
     de: "Wurzeln in Französisch-Guayana (Guyane), mit karibischer Linie auch nach Martinique und St. Lucia. US-Amerikaner väterlicherseits — Chicago. Aufgewachsen neben der Army Base in Hessen. Shortlord kommt aus dem Hamburger Hip-Hop der Mid-90s — erste Heat auf 2ruffs „Ya Ready?“, dann Gold-Ära mit Nana und MTV mit The Fight. Er half, die Boogiepark-Szene aufzubauen, unterstützte Jentown Crhyme / 187 mit Rough-Trade-Distribution und gründete 2006 Chosenfewrecords, das er bis heute besitzt. Aus dem Underground heraus — immer unabhängig.",
+    fr: "Racines en Guyane française, avec une lignée caribéenne aussi vers la Martinique et Sainte-Lucie. Américain du côté de son père — Chicago. Grandi à côté de la base militaire en Hesse. Shortlord vient du hip-hop hambourgeois depuis le milieu des années 90 — première heat sur « Ya Ready? » de 2ruff, puis l'ère or Nana et MTV avec The Fight. Il a aidé à bâtir la scène Boogiepark, soutenu Jentown Crhyme / 187 avec la distribution Rough Trade, et fondé Chosenfewrecords en 2006, qu'il possède encore. De l'underground — toujours indépendant.",
   },
   badges: [
-    { num: "95", txt: "2ruff · Ya Ready?" },
-    { num: "Gold", txt: "Nana · 1997/98 · 400K+" },
-    { num: "MTV", txt: "The Fight · 98/99 DE" },
-    { num: "BL", txt: "Bundesliga 2022" },
+    { num: "GY", txt: "Guyane · Caribbean" },
+    { num: "CHI", txt: "Chicago · US" },
+    { num: "HH", txt: "Hamburg · Home" },
+    { num: "Gold", txt: "Nana · MTV · BL" },
   ],
   timeline: [
     {
@@ -229,6 +230,7 @@ export const ABOUT = {
   body: {
     en: 'Chosenfewrecords is owned by Shortlord. Before that chapter, he sparked the idea for Black Angel Records — the label founded by Eric I.Q. Gray. Together they put out The Prophets Empire\'s "The Fight" on Black Angel first; it was then picked up for a BMG release and got massive MTV rotation in Germany in 1998/1999. He brought Class Productions and Phantom Black to Boogiepark in the late 90s, turning it into one of Hamburg\'s first real hip-hop hotspots. Class Productions produced KC da Rookee and the Harlekings. Four years after Class left, Sleepwalker took over their studio and made Samy Deluxe\'s "Weck mich auf" from it — #4 Germany, Gold record, 2001. He founded and owns Chosenfewrecords (2006). He also supported Jentown Crhyme Records (187) with Rough Trade distribution — Bonez MC\'s first official solo album, Mehr Geht Nicht (2008), came out through that pipeline. Always independent.',
     de: "Chosenfewrecords gehört Shortlord — er ist Owner des Labels. Zuvor kam von ihm die Idee zu Black Angel Records — gegründet von Eric I.Q. Gray. Gemeinsam brachten sie „The Fight“ von The Prophets Empire zuerst auf Black Angel heraus; danach BMG-Pickup und massive MTV-Rotation in Deutschland 1998/1999. Er brachte Class Productions und Phantom Black Ende der 90er nach Boogiepark. Class Productions produzierten KC da Rookee und die Harlekings. Vier Jahre nachdem Class gegangen war, übernahm Sleepwalker das Studio und machte Samy Deluxe' „Weck mich auf“ daraus — #4 Deutschland, Gold, 2001. Gründer und Owner von Chosenfewrecords seit 2006. Er unterstützte Jentown Crhyme Records (187) mit dem Rough-Trade-Distribution-Deal — darüber erschien Bonez MCs erstes offizielles Soloalbum Mehr Geht Nicht (2008). Immer unabhängig.",
+    fr: "Chosenfewrecords appartient à Shortlord — il en est l'owner. Avant ça, il a lancé l'idée de Black Angel Records — label fondé par Eric I.Q. Gray. Ensemble ils sortent « The Fight » de The Prophets Empire d'abord sur Black Angel ; BMG reprend ensuite, avec une rotation MTV massive en Allemagne en 1998/1999. Il amène Class Productions et Phantom Black à Boogiepark à la fin des années 90, l'un des premiers vrais spots hip-hop de Hambourg. Class Productions produit KC da Rookee et les Harlekings. Quatre ans après le départ de Class, Sleepwalker reprend le studio et y enregistre « Weck mich auf » de Samy Deluxe — #4 Allemagne, disque d'or, 2001. Il fonde et possède Chosenfewrecords (2006). Il soutient aussi Jentown Crhyme Records (187) avec la distribution Rough Trade — le premier album solo officiel de Bonez MC, Mehr Geht Nicht (2008), passe par ce pipe. Toujours indépendant.",
   },
   stats: [
     { num: "2006", label: "Founded" },

@@ -6,6 +6,9 @@ import { Collabs } from "@/components/home/Collabs";
 import { VideosTeaser } from "@/components/home/VideosTeaser";
 import { AboutTeaser } from "@/components/home/AboutTeaser";
 import { DemoTeaser } from "@/components/home/DemoTeaser";
+import { VaultStrip } from "@/components/home/VaultStrip";
+import { RootsMesh } from "@/components/home/RootsMesh";
+import { FlagBand } from "@/components/ui/Flags";
 import { Marquee } from "@/components/ui/Marquee";
 import { ReleaseCard } from "@/components/ui/ReleaseCard";
 import { SectionLabel } from "@/components/ui/SectionLabel";
@@ -30,15 +33,22 @@ export default async function HomePage({
       <Marquee />
       <FeaturedRelease release={featured} />
 
-      <section id="releases-grid" className="scroll-mt-20 bg-background px-5 py-16 md:px-10 md:py-20">
+      <section id="releases-grid" className="scroll-mt-20 bg-background px-5 py-[var(--section-y)] md:px-10 md:py-[var(--section-y-lg)]">
         <SectionLabel>{t("label")}</SectionLabel>
-        <div className="mt-8 grid grid-cols-2 gap-px bg-white/[0.06] md:grid-cols-4">
-          {releases.map((release) => (
-            <ReleaseCard key={release.id} release={release} />
+        <div className="stagger-fade mt-8 grid grid-cols-2 gap-px bg-cream/10 md:grid-cols-4">
+          {releases.map((release, i) => (
+            <ReleaseCard
+              key={release.id}
+              release={release}
+              featured={i === 0}
+            />
           ))}
         </div>
       </section>
 
+      <VaultStrip />
+      <FlagBand />
+      <RootsMesh />
       <ArtistSpread />
       <Collabs />
       <VideosTeaser />

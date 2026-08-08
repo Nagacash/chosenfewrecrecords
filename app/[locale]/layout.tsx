@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { Archivo, Archivo_Black, Space_Mono } from "next/font/google";
+import { Archivo_Black, Outfit, Space_Mono } from "next/font/google";
 import { routing } from "@/i18n/routing";
+import { isAppLocale } from "@/lib/locale";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HashScroll } from "@/components/layout/HashScroll";
@@ -12,18 +13,22 @@ const display = Archivo_Black({
   weight: "400",
   subsets: ["latin"],
   variable: "--font-display",
+  display: "swap",
 });
 
-const body = Archivo({
-  weight: ["400", "500", "600"],
+/** Fresh body — Outfit reads modern, not 2004 UI */
+const body = Outfit({
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-body",
+  display: "swap",
 });
 
 const mono = Space_Mono({
   weight: ["400", "700"],
   subsets: ["latin"],
   variable: "--font-mono",
+  display: "swap",
 });
 
 export function generateStaticParams() {
@@ -49,7 +54,7 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  if (!routing.locales.includes(locale as "en" | "de")) {
+  if (!isAppLocale(locale)) {
     notFound();
   }
 
@@ -58,7 +63,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className={`${display.variable} ${body.variable} ${mono.variable}`}>
-      <body className="min-h-screen bg-background font-body text-cream antialiased">
+      <body className="min-h-screen bg-background font-body text-base leading-relaxed text-cream antialiased">
         <NextIntlClientProvider messages={messages}>
           <HashScroll />
           <Header />

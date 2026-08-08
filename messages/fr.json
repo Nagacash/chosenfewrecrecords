@@ -1,0 +1,78 @@
+{
+  "Meta": {
+    "title": "Chosenfewrecords — Hamburg",
+    "description": "Label indépendant de hip-hop et de musique caribéenne à Hambourg. Depuis 2006."
+  },
+  "Nav": {
+    "releases": "Releases",
+    "catalogue": "Catalogue",
+    "artist": "Artiste",
+    "features": "Features",
+    "videos": "Vidéos",
+    "label": "Label",
+    "demo": "Demo",
+    "partners": "Partenaires",
+    "more": "Plus",
+    "roots": "Roots",
+    "badge": "GY · CHI · HH"
+  },
+  "Hero": {
+    "eyebrow": "01 — Chosenfewrecords · Hamburg · Est. 2006",
+    "line1": "Chosen",
+    "line2": "Few",
+    "line3": "Records",
+    "sub": "Hip-hop indépendant & son caribéen depuis Hambourg — depuis l'underground, 2006.",
+    "ctaRelease": "Dernier Release",
+    "ctaVideos": "Voir les vidéos"
+  },
+  "Featured": {
+    "label": "02 — Dernier Release",
+    "tag": "Nouveau — Chosenfewrecords · 2026",
+    "title": "Top Floor",
+    "artist": "Shortlord — Lo-fi House",
+    "titleAlt": "Heaven Sent",
+    "catalogue": "Voir le catalogue"
+  },
+  "Catalogue": {
+    "label": "03 — Catalogue",
+    "empty": "Chargement des releases…"
+  },
+  "Artist": {
+    "label": "04 — L'Artiste",
+    "role": "Artiste · Producteur · Owner & CEO · Chosenfewrecords",
+    "bio": "Shortlord est l'owner de Chosenfewrecords. Racines en Guyane française, lignée caribéenne aussi vers la Martinique et Sainte-Lucie. Américain du côté de son père — Chicago. Grandi à côté de la base militaire en Hesse. L'idée de Black Angel Records vient de lui — fondé par Eric I.Q. Gray. The Fight d'abord sur Black Angel, puis BMG et une rotation MTV massive en Allemagne 1998/1999. Chosenfewrecords depuis 2006 — indépendant, Hambourg, pour toujours.",
+    "cta": "Page artiste"
+  },
+  "Videos": {
+    "label": "06 — Archives vidéo",
+    "all": "Toutes les vidéos → @chosenfewrecords"
+  },
+  "About": {
+    "label": "07 — Le Label",
+    "headline1": "Vingt",
+    "headline2": "Ans.",
+    "headline3": "Hambourg.",
+    "headline4": "Indépendant.",
+    "body": "Shortlord a amené Class Productions et Phantom Black à Boogiepark à la fin des années 90 — l'un des premiers vrais spots hip-hop de Hambourg. Chosenfewrecords depuis 2006 : indépendant, hip-hop × Caribbean, ère Rough Trade, Labelförderung Hambourg — et on construit encore."
+  },
+  "Demo": {
+    "label": "08 — Envoyer",
+    "headline": "Envoie ta démo.",
+    "sub": "Liens uniquement. Pas de pièces jointes. On écoute tout. Réponse sous 4 semaines.",
+    "name": "Ton nom",
+    "link": "SoundCloud / Lien streaming",
+    "genre": "Genre / Style",
+    "message": "Message court (optionnel)",
+    "submit": "Envoyer la démo"
+  },
+  "Footer": {
+    "tagline": "Hip-hop indépendant & musique caribéenne. Hambourg, Allemagne. Depuis 2006.",
+    "navigate": "Naviguer",
+    "connect": "Connect",
+    "partners": "Partenaires",
+    "officialPartner": "Partenaire officiel",
+    "copy": "© {year} Chosenfewrecords Hamburg — Tous droits réservés",
+    "impressum": "Mentions légales",
+    "datenschutz": "Confidentialité"
+  }
+}

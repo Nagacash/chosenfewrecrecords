@@ -2,6 +2,9 @@
 
 import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
+import type { AppLocale } from "@/lib/locale";
+
+const LOCALES: AppLocale[] = ["en", "de", "fr"];
 
 export function LanguageSwitcher() {
   const locale = useLocale();
@@ -10,7 +13,7 @@ export function LanguageSwitcher() {
 
   return (
     <div className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em]">
-      {(["en", "de"] as const).map((code) => (
+      {LOCALES.map((code) => (
         <button
           key={code}
           type="button"
@@ -20,6 +23,7 @@ export function LanguageSwitcher() {
               ? "text-accent"
               : "text-muted transition-colors hover:text-cream"
           }
+          aria-label={`Switch to ${code}`}
         >
           {code}
         </button>

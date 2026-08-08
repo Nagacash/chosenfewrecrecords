@@ -1,22 +1,27 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { Stamp } from "@/components/ui/Stamp";
 import { ABOUT } from "@/lib/content";
+import { pickLocaleText } from "@/lib/locale";
 
 export async function AboutTeaser() {
   const t = await getTranslations("About");
   const locale = await getLocale();
-  const body = ABOUT.body[locale === "de" ? "de" : "en"];
+  const body = pickLocaleText(ABOUT.body, locale);
 
   return (
-    <section id="about" className="relative scroll-mt-20 overflow-hidden bg-background px-5 py-16 md:px-10 md:py-20">
-      <div
-        className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.08] saturate-50"
-        style={{ backgroundImage: "url(/shortlord-photo.jpg)" }}
-      />
-      <div className="relative z-10 mx-auto grid max-w-6xl gap-12 md:grid-cols-2">
+    <section id="about" className="relative scroll-mt-20 overflow-hidden bg-background px-5 py-[var(--section-y-lg)] md:px-10">
+      <div className="roots-stripe absolute inset-x-0 top-0 h-1" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_80%_10%,rgba(212,181,90,0.08),transparent_45%)]" />
+
+      <div className="relative z-10 mx-auto grid max-w-6xl gap-14 md:grid-cols-2">
         <div>
           <SectionLabel>{t("label")}</SectionLabel>
-          <h2 className="mb-8 font-display text-[clamp(48px,6vw,88px)] font-black uppercase leading-[0.9] tracking-tight text-white">
+          <div className="mb-4 flex flex-wrap gap-2">
+            <Stamp>Label</Stamp>
+            <Stamp tone="gold">Guyane · HH</Stamp>
+          </div>
+          <h2 className="mb-8 font-display text-[clamp(48px,6vw,88px)] uppercase leading-[0.88] tracking-tight text-cream">
             {t("headline1")}
             <br />
             {t("headline2")}
@@ -25,28 +30,26 @@ export async function AboutTeaser() {
             <br />
             {t("headline4")}
           </h2>
-          <p className="max-w-[52ch] text-[15px] leading-relaxed text-cream/70">
+          <p className="max-w-[60ch] text-base leading-relaxed text-cream/80">
             {body}
           </p>
 
-          <div className="mt-8 space-y-4">
+          <div className="mt-10 space-y-0 border-t border-cream/15">
             {ABOUT.accolades.slice(0, 2).map((a) => (
               <div
                 key={a.label}
-                className={`border-l-[3px] p-5 ${
-                  a.tone === "accent"
-                    ? "border-accent bg-[rgba(255,106,0,0.06)]"
-                    : "border-gold bg-[rgba(200,168,75,0.06)]"
+                className={`border-l-4 py-5 pl-5 ${
+                  a.tone === "accent" ? "border-accent" : "border-gold"
                 }`}
               >
                 <div
-                  className={`mb-2 font-mono text-[8px] uppercase tracking-[0.2em] ${
+                  className={`mb-2 font-mono text-[9px] font-bold uppercase tracking-[0.2em] ${
                     a.tone === "accent" ? "text-accent" : "text-gold"
                   }`}
                 >
                   {a.label}
                 </div>
-                <p className="text-[13px] leading-relaxed text-cream/80">
+                <p className="text-sm leading-relaxed text-cream/80">
                   {a.body}
                   {"href" in a && a.href ? (
                     <>
@@ -67,11 +70,23 @@ export async function AboutTeaser() {
           </div>
         </div>
 
-        <div className="space-y-4 md:pt-10">
-          <div className="grid grid-cols-2 gap-px bg-white/[0.06]">
+        <div className="space-y-6 md:pt-8">
+          <div className="kraft-panel p-6 md:p-8">
+            <p className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-black/50">
+              Press clip
+            </p>
+            <p className="mt-2 font-display text-2xl font-black uppercase leading-tight text-black">
+              Hamburg Labelförderung
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-black/70">
+              Official recognition — Behörde für Kultur und Medien. Independent, always.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 gap-px bg-cream/15">
             {ABOUT.stats.map((s) => (
               <div key={s.label} className="bg-surface2 p-6">
-                <div className="font-display text-4xl font-black text-accent">
+                <div className="font-display text-4xl font-black tabular-nums text-accent">
                   {s.num}
                 </div>
                 <div className="mt-1 font-mono text-[8px] uppercase tracking-[0.18em] text-muted">
@@ -81,40 +96,40 @@ export async function AboutTeaser() {
             ))}
           </div>
 
-          {ABOUT.accolades.slice(2).map((a) => (
-            <div
-              key={a.label}
-              className={`border-l-[3px] p-5 ${
-                a.tone === "accent"
-                  ? "border-accent bg-[rgba(255,106,0,0.06)]"
-                  : "border-gold bg-[rgba(200,168,75,0.06)]"
-              }`}
-            >
+          <div className="border-t border-cream/15">
+            {ABOUT.accolades.slice(2).map((a) => (
               <div
-                className={`mb-2 font-mono text-[8px] uppercase tracking-[0.2em] ${
-                  a.tone === "accent" ? "text-accent" : "text-gold"
+                key={a.label}
+                className={`border-l-4 py-5 pl-5 ${
+                  a.tone === "accent" ? "border-accent" : "border-gold"
                 }`}
               >
-                {a.label}
+                <div
+                  className={`mb-2 font-mono text-[9px] font-bold uppercase tracking-[0.2em] ${
+                    a.tone === "accent" ? "text-accent" : "text-gold"
+                  }`}
+                >
+                  {a.label}
+                </div>
+                <p className="text-sm leading-relaxed text-cream/80">
+                  {a.body}
+                  {"href" in a && a.href ? (
+                    <>
+                      {" "}
+                      <a
+                        href={a.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-accent hover:underline"
+                      >
+                        → {a.linkLabel}
+                      </a>
+                    </>
+                  ) : null}
+                </p>
               </div>
-              <p className="text-[13px] leading-relaxed text-cream/80">
-                {a.body}
-                {"href" in a && a.href ? (
-                  <>
-                    {" "}
-                    <a
-                      href={a.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-accent hover:underline"
-                    >
-                      → {a.linkLabel}
-                    </a>
-                  </>
-                ) : null}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

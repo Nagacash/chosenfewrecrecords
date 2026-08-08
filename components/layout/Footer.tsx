@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { PARTNERS } from "@/lib/content";
+import { BrandMark } from "@/components/ui/BrandMark";
 
 export async function Footer() {
   const t = await getTranslations("Footer");
@@ -9,18 +9,17 @@ export async function Footer() {
 
   return (
     <footer className="border-t-[3px] border-accent bg-background px-5 pb-8 pt-16 md:px-10">
+      <div className="roots-stripe mb-10 h-1 w-full" />
       <div className="mb-12 grid gap-10 md:grid-cols-[2fr_1fr_1fr_1fr]">
         <div>
-          <Image
-            src="/chosenfew_logo_white.png"
-            alt="Chosenfewrecords"
-            width={220}
-            height={56}
-            className="mb-4 h-10 w-auto mix-blend-screen"
-            unoptimized
-          />
+          <div className="mb-4">
+            <BrandMark size="footer" href="/" />
+          </div>
           <p className="max-w-xs font-display text-xl font-bold uppercase leading-snug text-muted">
             {t("tagline")}
+          </p>
+          <p className="mt-3 font-mono text-[9px] uppercase tracking-[0.18em] text-cream/40">
+            Guyane · Chicago · Hamburg
           </p>
         </div>
 

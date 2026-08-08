@@ -9,14 +9,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#090909",
-        surface: "#111111",
-        surface2: "#1A1A1A",
-        accent: "#FF6A00",
-        gold: "#C8A84B",
-        green: "#1A3028",
-        cream: "#F0EDE6",
-        muted: "#888888",
+        background: "#141210",
+        surface: "#1C1915",
+        surface2: "#28241F",
+        accent: {
+          DEFAULT: "#FF6A00",
+          hover: "#FF8A33",
+        },
+        gold: "#D4B55A",
+        caribbean: "#2D6A4F",
+        kraft: "#E8DCC4",
+        cream: "#F7F3EA",
+        muted: "#A39E93",
       },
       fontFamily: {
         display: ["var(--font-display)", "sans-serif"],
@@ -24,10 +28,24 @@ const config: Config = {
         mono: ["var(--font-mono)", "monospace"],
       },
       borderRadius: {
-        card: "6px",
+        card: "2px",
+        none: "0",
       },
       letterSpacing: {
         section: "0.25em",
+      },
+      transitionTimingFunction: {
+        out: "cubic-bezier(0.16, 1, 0.3, 1)",
+      },
+      transitionDuration: {
+        fast: "150ms",
+        DEFAULT: "280ms",
+        slow: "500ms",
+      },
+      zIndex: {
+        nav: "200",
+        overlay: "300",
+        grain: "400",
       },
     },
   },

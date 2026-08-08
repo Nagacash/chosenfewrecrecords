@@ -4,6 +4,7 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Discography } from "@/components/home/Discography";
 import { ARTIST } from "@/lib/content";
 import { DISCOGS_PROFILE } from "@/lib/discogs";
+import { pickLocaleText } from "@/lib/locale";
 
 export default async function ShortlordPage({
   params: { locale },
@@ -13,7 +14,7 @@ export default async function ShortlordPage({
   setRequestLocale(locale);
   const t = await getTranslations("Artist");
   const current = await getLocale();
-  const bio = ARTIST.bio[current === "de" ? "de" : "en"];
+  const bio = pickLocaleText(ARTIST.bio, current);
 
   return (
     <>

@@ -1,6 +1,7 @@
 import { getLocale, getTranslations, setRequestLocale } from "next-intl/server";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { ABOUT } from "@/lib/content";
+import { pickLocaleText } from "@/lib/locale";
 
 export default async function AboutPage({
   params: { locale },
@@ -10,7 +11,7 @@ export default async function AboutPage({
   setRequestLocale(locale);
   const t = await getTranslations("About");
   const current = await getLocale();
-  const body = ABOUT.body[current === "de" ? "de" : "en"];
+  const body = pickLocaleText(ABOUT.body, current);
 
   return (
     <section className="relative overflow-hidden bg-background px-5 pb-20 pt-28 md:px-10">

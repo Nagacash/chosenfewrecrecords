@@ -9,7 +9,7 @@ export async function VideosTeaser() {
   const videos = await getVideos();
 
   return (
-    <section id="videos" className="scroll-mt-20 bg-background px-5 py-16 md:px-10 md:py-20">
+    <section id="videos" className="scroll-mt-20 bg-background px-5 py-[var(--section-y-tight)] md:px-10 md:py-14">
       <SectionLabel>
         {t("label")} ·{" "}
         <a
@@ -31,7 +31,7 @@ export async function VideosTeaser() {
       <div className="mt-8 text-center">
         <Link
           href="/videos"
-          className="inline-block border border-white/30 px-9 py-3.5 font-display text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:border-accent hover:text-accent"
+            className="inline-block border-2 border-white/35 px-9 py-3.5 font-display text-sm font-bold uppercase tracking-[0.08em] text-white transition-colors duration-fast hover:border-accent hover:text-accent"
         >
           {t("all")}
         </Link>

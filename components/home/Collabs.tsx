@@ -3,24 +3,30 @@ import { COLLABS } from "@/lib/content";
 
 export function Collabs() {
   return (
-    <section id="collabs" className="scroll-mt-20 border-y border-white/[0.06] bg-surface px-5 py-16 md:px-10 md:py-20">
+    <section
+      id="collabs"
+      className="scroll-mt-20 border-y border-cream/10 bg-surface px-5 py-[var(--section-y-tight)] md:px-10 md:py-12"
+    >
       <SectionLabel>05 — International Features</SectionLabel>
-      <div className="mt-10 grid grid-cols-1 gap-px bg-white/[0.06] sm:grid-cols-2 lg:grid-cols-5">
+
+      <div className="mt-6 border-t border-cream/15">
         {COLLABS.map((c) => (
           <div
             key={c.name}
-            className="bg-surface p-7 transition-colors hover:bg-surface2"
+            className="grid grid-cols-[3.5rem_1fr] gap-4 border-b border-cream/10 py-4 transition-colors duration-fast hover:bg-cream/[0.03] md:grid-cols-[4rem_minmax(10rem,16rem)_1fr_auto] md:items-baseline md:gap-6"
           >
-            <div className="mb-2.5 font-mono text-[11px] font-bold tracking-[0.2em] text-accent">
+            <span className="font-mono text-[11px] font-bold tracking-[0.2em] text-accent">
               {c.mark}
-            </div>
-            <div className="mb-1 font-display text-base font-black uppercase text-white">
+            </span>
+            <span className="font-display text-base font-black uppercase text-white md:text-lg">
               {c.name}
-            </div>
-            <div className="mb-2 font-mono text-[8px] uppercase tracking-[0.16em] text-accent">
+            </span>
+            <span className="col-span-2 font-mono text-[9px] uppercase tracking-[0.16em] text-muted md:col-span-1">
               {c.origin}
-            </div>
-            <div className="text-xs italic leading-snug text-muted">{c.track}</div>
+            </span>
+            <span className="col-span-2 text-sm italic leading-snug text-cream/55 md:col-span-1 md:text-right">
+              {c.track}
+            </span>
           </div>
         ))}
       </div>

@@ -1,54 +1,68 @@
 import { getTranslations } from "next-intl/server";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { Stamp } from "@/components/ui/Stamp";
 
 export async function DemoTeaser() {
   const t = await getTranslations("Demo");
 
-  return (
-    <section id="demo" className="relative scroll-mt-20 overflow-hidden border-t border-white/[0.06] bg-surface px-5 py-16 md:px-10 md:py-20">
-      <div className="relative z-10 max-w-xl">
-        <SectionLabel>{t("label")}</SectionLabel>
-        <h2 className="mb-3 font-display text-[clamp(40px,5vw,72px)] font-black uppercase leading-[0.9] tracking-tight text-white">
-          {t("headline")}
-        </h2>
-        <p className="mb-8 text-sm leading-relaxed text-cream/60">{t("sub")}</p>
+  const field =
+    "rounded-none border border-cream/15 border-l-4 border-l-accent bg-background px-4 py-3.5 text-base text-cream outline-none transition-colors duration-fast placeholder:text-muted focus:border-accent";
 
-        <form
-          className="flex flex-col gap-2.5"
-          action="mailto:chosenfewrecords@hotmail.de"
-          method="POST"
-          encType="text/plain"
-        >
-          <input
-            name="name"
-            required
-            placeholder={t("name")}
-            className="border border-white/[0.06] border-l-[3px] border-l-white/10 bg-background px-4 py-3.5 text-sm text-white outline-none transition focus:border-accent focus:border-l-accent placeholder:text-muted"
-          />
-          <input
-            name="link"
-            required
-            placeholder={t("link")}
-            className="border border-white/[0.06] border-l-[3px] border-l-white/10 bg-background px-4 py-3.5 text-sm text-white outline-none transition focus:border-accent focus:border-l-accent placeholder:text-muted"
-          />
-          <input
-            name="genre"
-            placeholder={t("genre")}
-            className="border border-white/[0.06] border-l-[3px] border-l-white/10 bg-background px-4 py-3.5 text-sm text-white outline-none transition focus:border-accent focus:border-l-accent placeholder:text-muted"
-          />
-          <textarea
-            name="message"
-            rows={4}
-            placeholder={t("message")}
-            className="resize-y border border-white/[0.06] border-l-[3px] border-l-white/10 bg-background px-4 py-3.5 text-sm text-white outline-none transition focus:border-accent focus:border-l-accent placeholder:text-muted"
-          />
-          <button
-            type="submit"
-            className="mt-2 self-start bg-accent px-9 py-3.5 font-display text-sm font-black uppercase tracking-[0.08em] text-black transition hover:bg-[#ff7733] [clip-path:polygon(0_0,calc(100%-10px)_0,100%_10px,100%_100%,10px_100%,0_calc(100%-10px))]"
+  return (
+    <section
+      id="demo"
+      className="relative scroll-mt-20 overflow-hidden border-t border-cream/10 bg-surface px-5 py-[var(--section-y)] md:px-10 md:py-[var(--section-y-lg)]"
+    >
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_0%_100%,rgba(255,106,0,0.14),transparent_45%)]" />
+      <div className="relative z-10 grid max-w-5xl gap-10 md:grid-cols-[1.2fr_0.8fr]">
+        <div>
+          <SectionLabel>{t("label")}</SectionLabel>
+          <Stamp>Open call</Stamp>
+          <h2 className="mt-4 mb-3 font-display text-[clamp(40px,5vw,72px)] uppercase leading-[0.88] tracking-tight text-cream">
+            {t("headline")}
+          </h2>
+          <p className="mb-8 max-w-[60ch] text-base leading-relaxed text-cream/70">{t("sub")}</p>
+
+          <form
+            className="flex flex-col gap-3"
+            action="mailto:chosenfewrecords@hotmail.de"
+            method="POST"
+            encType="text/plain"
           >
-            {t("submit")}
-          </button>
-        </form>
+            <input name="name" required placeholder={t("name")} className={field} />
+            <input name="link" required placeholder={t("link")} className={field} />
+            <input name="genre" placeholder={t("genre")} className={field} />
+            <textarea
+              name="message"
+              rows={4}
+              placeholder={t("message")}
+              className={`${field} resize-y`}
+            />
+            <button
+              type="submit"
+              className="stamp-btn mt-2 self-start bg-accent px-9 py-4 font-display text-sm font-black uppercase tracking-[0.08em] text-black transition-colors duration-fast hover:bg-accent-hover"
+            >
+              {t("submit")}
+            </button>
+          </form>
+        </div>
+
+        <div className="kraft-panel hidden flex-col justify-between p-8 md:flex">
+          <div>
+            <p className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-black/50">
+              What we want
+            </p>
+            <ul className="mt-4 space-y-3 font-display text-lg font-black uppercase leading-snug text-black">
+              <li>Original heat</li>
+              <li>Real identity</li>
+              <li>Hamburg or diaspora</li>
+              <li>Independent mindset</li>
+            </ul>
+          </div>
+          <p className="mt-8 text-sm text-black/65">
+            Link SoundCloud / Dropbox / Drive. We listen.
+          </p>
+        </div>
       </div>
     </section>
   );
