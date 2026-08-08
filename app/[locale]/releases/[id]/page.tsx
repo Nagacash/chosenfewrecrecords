@@ -3,9 +3,11 @@ import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { getRelease } from "@/lib/toolost";
 import { getSpotifyForRelease, spotifyOpenUrl } from "@/lib/spotify";
+import { getYoutubeForRelease } from "@/lib/youtube";
 import { SOCIAL } from "@/lib/social";
 import { Link } from "@/i18n/navigation";
 import { SpotifyEmbed } from "@/components/ui/SpotifyEmbed";
+import { YouTubeListen } from "@/components/ui/YouTubeListen";
 
 export default async function ReleaseDetailPage({
   params: { locale, id },
@@ -17,6 +19,7 @@ export default async function ReleaseDetailPage({
   if (!release) notFound();
 
   const spotify = getSpotifyForRelease(release);
+  const youtubeId = getYoutubeForRelease(release);
 
   return (
     <section className="bg-background px-5 pb-20 pt-28 md:px-10">
@@ -69,9 +72,16 @@ export default async function ReleaseDetailPage({
                 Open in Spotify →
               </a>
             </div>
+          ) : youtubeId ? (
+            <div className="mb-8">
+              <YouTubeListen
+                id={youtubeId}
+                title={`${release.title} — YouTube`}
+              />
+            </div>
           ) : (
             <p className="mb-8 font-mono text-[10px] uppercase tracking-[0.14em] text-muted">
-              Not on Spotify yet —{" "}
+              Not streaming yet —{" "}
               <a
                 href={SOCIAL.spotifyArtist}
                 target="_blank"

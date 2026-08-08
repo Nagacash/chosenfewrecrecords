@@ -7,15 +7,18 @@ import { useGSAP } from "@gsap/react";
 import { Link } from "@/i18n/navigation";
 import type { Release } from "@/lib/toolost";
 import { getSpotifyForRelease, spotifyOpenUrl } from "@/lib/spotify";
+import { getYoutubeForRelease } from "@/lib/youtube";
 import {
   CATALOGUE_FILTERS,
   ERA_SHELVES,
   matchesCatalogueFilter,
+  releaseHasListen,
   releaseYear,
   sortReleasesNewest,
   type CatalogueFilter,
 } from "@/lib/catalogue-ui";
 import { SpotifyEmbed } from "@/components/ui/SpotifyEmbed";
+import { YouTubeListen } from "@/components/ui/YouTubeListen";
 
 gsap.registerPlugin(useGSAP);
 
@@ -86,6 +89,7 @@ export function CatalogueBrowser({
     null;
 
   const spotify = active ? getSpotifyForRelease(active) : null;
+  const youtubeId = active ? getYoutubeForRelease(active) : null;
 
   const shelves = useMemo(() => {
     if (filter !== "all") {
@@ -335,6 +339,11 @@ export function CatalogueBrowser({
                       {labels.onSpotify} →
                     </a>
                   </>
+                ) : youtubeId ? (
+                  <YouTubeListen
+                    id={youtubeId}
+                    title={`${active.title} — YouTube`}
+                  />
                 ) : (
                   <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted">
                     {labels.archive}
@@ -374,7 +383,7 @@ export function CatalogueBrowser({
                   {shelf.items.map((release) => {
                     const on = release.id === active.id;
                     const y = releaseYear(release);
-                    const hasSpotify = Boolean(getSpotifyForRelease(release));
+                    const canListen = releaseHasListen(release);
                     return (
                       <button
                         key={release.id}
@@ -408,7 +417,7 @@ export function CatalogueBrowser({
                             className="object-cover transition-transform duration-slow ease-out group-hover:scale-[1.04]"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
-                          {hasSpotify ? (
+                          {canListen ? (
                             <span className="absolute right-2 top-2 h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_0_3px_rgba(255,106,0,0.25)]" />
                           ) : null}
                           <div className="absolute inset-x-0 bottom-0 p-2.5">

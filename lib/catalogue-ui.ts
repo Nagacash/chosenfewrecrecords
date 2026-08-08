@@ -1,5 +1,10 @@
 import type { Release } from "@/lib/toolost";
 import { getSpotifyForRelease } from "@/lib/spotify";
+import { getYoutubeForRelease } from "@/lib/youtube";
+
+export function releaseHasListen(release: Release): boolean {
+  return Boolean(getSpotifyForRelease(release) || getYoutubeForRelease(release));
+}
 
 export type CatalogueFilter =
   | "all"
@@ -41,7 +46,7 @@ export function matchesCatalogueFilter(
     case "all":
       return true;
     case "listen":
-      return Boolean(getSpotifyForRelease(release));
+      return releaseHasListen(release);
     case "2020s":
       return year >= 2020;
     case "2010s":

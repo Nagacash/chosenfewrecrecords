@@ -79,7 +79,17 @@ export async function Footer() {
                 rel="noopener noreferrer"
                 className="font-display text-sm font-bold uppercase text-muted hover:text-accent"
               >
-                Instagram
+                Instagram · Label
+              </a>
+            </li>
+            <li>
+              <a
+                href={SOCIAL.instagramShortlord}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-display text-sm font-bold uppercase text-muted hover:text-accent"
+              >
+                Instagram · Shortlord
               </a>
             </li>
             <li>

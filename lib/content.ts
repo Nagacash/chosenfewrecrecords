@@ -132,7 +132,7 @@ export const ARTIST = {
       year: "2015",
       text: 'Produces Haji Brown — "Field Nggah Thought" / "About Me" (Chosenfewrecords).',
       badge: "Producer",
-      href: "https://www.youtube.com/watch?v=l1pEfRY7poA",
+      href: "https://www.youtube.com/watch?v=Ey5rwziBimc",
       linkLabel: "Watch",
     },
     {

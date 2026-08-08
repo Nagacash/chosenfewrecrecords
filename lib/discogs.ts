@@ -315,11 +315,52 @@ export const LABEL_EXTRA = [
     },
   },
   {
+    id: "ways-of-mankind",
+    title: "Ways of Mankind",
+    artist: "Shortlord ft. Mounier",
+    year: 2008,
+    format: "Single · prod. Farhot",
+    tag: "YouTube",
+    artwork_url: "/shortlord-photo.jpg",
+    streaming_links: {
+      youtube: "https://www.youtube.com/watch?v=L7R1oiGEO8k",
+    },
+  },
+  {
+    id: "guyana-girl",
+    title: "Guyana Girl",
+    artist: "Shortlord feat. Jahrose",
+    year: 2010,
+    format: "Single · Official Video",
+    tag: "YouTube",
+    artwork_url: "/shortlord-photo.jpg",
+    streaming_links: {
+      youtube: "https://www.youtube.com/watch?v=6Wcrvn_Y4FQ",
+    },
+  },
+  {
+    id: "wie-wir-leben",
+    title: "Wie wir Leben",
+    artist: "Capuz feat. Shortlord",
+    year: 2009,
+    format: "Chosenfewrecords · Official Video",
+    tag: "YouTube",
+    artwork_url: "/shortlord-photo.jpg",
+    streaming_links: {
+      youtube: "https://www.youtube.com/watch?v=7_1L910qh-E",
+    },
+  },
+  {
     id: "field-nggah-thought",
     title: "Field Nggah Thought / About Me",
     artist: "Haji Brown",
     year: 2015,
-    format: "Chosenfewrecords · prod. Shortlord · 31K+ views",
+    format: "Chosenfewrecords · prod. Shortlord",
+    tag: "YouTube",
+    artwork_url: "/covers/haji-brown.jpg",
+    streaming_links: {
+      youtube: "https://www.youtube.com/watch?v=Ey5rwziBimc",
+    },
   },
   {
     id: "genug-ist-genug",

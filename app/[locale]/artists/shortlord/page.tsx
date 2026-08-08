@@ -5,6 +5,7 @@ import { Discography } from "@/components/home/Discography";
 import { ARTIST } from "@/lib/content";
 import { DISCOGS_PROFILE } from "@/lib/discogs";
 import { pickLocaleText } from "@/lib/locale";
+import { SOCIAL } from "@/lib/social";
 
 export default async function ShortlordPage({
   params: { locale },
@@ -48,14 +49,24 @@ export default async function ShortlordPage({
             <p className="mt-4 max-w-[52ch] text-[13px] leading-relaxed text-muted">
               {DISCOGS_PROFILE}
             </p>
-            <a
-              href={ARTIST.discogsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 font-mono text-[10px] uppercase tracking-[0.18em] text-accent hover:underline"
-            >
-              Discogs credits →
-            </a>
+            <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-4">
+              <a
+                href={SOCIAL.instagramShortlord}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent hover:underline"
+              >
+                Instagram · @shortlord_hh →
+              </a>
+              <a
+                href={ARTIST.discogsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent hover:underline"
+              >
+                Discogs credits →
+              </a>
+            </div>
 
             <div className="mt-8 flex flex-wrap gap-2">
               {ARTIST.badges.map((b) => (
@@ -107,6 +118,44 @@ export default async function ShortlordPage({
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="border-y border-cream/10 bg-surface px-5 py-10 md:px-10 md:py-14">
+        <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-accent">
+          Frames
+        </p>
+        <h2 className="mt-2 font-display text-[clamp(28px,4vw,44px)] font-black uppercase leading-none text-cream">
+          Shortlord
+        </h2>
+        <div className="mt-6 grid gap-px bg-cream/10 sm:grid-cols-3">
+          {[
+            {
+              src: "/shortlord-photo.jpg",
+              alt: "Shortlord — portrait",
+            },
+            {
+              src: "/photos/shortlord-2.jpg",
+              alt: "Shortlord — city frame",
+            },
+            {
+              src: "/photos/shortlord-3.jpg",
+              alt: "Shortlord — NAGA frame",
+            },
+          ].map((shot) => (
+            <div
+              key={shot.src}
+              className="relative aspect-[3/4] overflow-hidden bg-background sm:aspect-square"
+            >
+              <Image
+                src={shot.src}
+                alt={shot.alt}
+                fill
+                className="object-cover object-top"
+                sizes="(max-width:640px) 100vw, 33vw"
+              />
+            </div>
+          ))}
         </div>
       </section>
 
