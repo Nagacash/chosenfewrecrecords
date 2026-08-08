@@ -1,8 +1,12 @@
 import { getLocale, getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { InstagramEmbed } from "@/components/ui/InstagramEmbed";
+import { Stamp } from "@/components/ui/Stamp";
 import { ABOUT } from "@/lib/content";
 import { pickLocaleText } from "@/lib/locale";
+
+const BUNDESLIGA_IG = "https://www.instagram.com/tv/CYZCXOBoGmg/";
 
 export default async function AboutPage({
   params: { locale },
@@ -57,7 +61,7 @@ export default async function AboutPage({
                   </div>
                   <p className="text-[13px] leading-relaxed text-cream/80">
                     {a.body}
-                    {"href" in a && a.href ? (
+                    {"href" in a && a.href && a.href !== BUNDESLIGA_IG ? (
                       <>
                         {" "}
                         <a
@@ -124,6 +128,71 @@ export default async function AboutPage({
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Bundesliga campaign — full-width feature */}
+      <div className="relative z-10 mx-auto mt-16 max-w-6xl overflow-hidden border border-cream/15">
+        <div className="roots-stripe h-1.5 w-full" />
+        <div className="grid lg:grid-cols-[1fr_minmax(280px,420px)]">
+          <div className="kraft-panel relative flex flex-col justify-between p-7 md:p-10">
+            <div>
+              <Stamp tone="accent">Campaign · 2022</Stamp>
+              <p className="mt-5 font-mono text-[10px] font-bold uppercase tracking-[0.28em] text-black/50">
+                Official DFL · @bundesliga
+              </p>
+              <h2 className="mt-3 max-w-[14ch] font-display text-[clamp(36px,5vw,56px)] font-black uppercase leading-[0.9] tracking-tight text-black">
+                You Are The
+                <br />
+                <span className="text-[color:var(--accent)]">Bundesliga</span>
+              </h2>
+              <p className="mt-5 max-w-[42ch] text-[15px] font-medium leading-relaxed text-black/70">
+                Shortlord on the verified Bundesliga Instagram — 6,500+ likes,
+                180M+ fans in reach. From Hamburg underground to the league&apos;s
+                official feed.
+              </p>
+            </div>
+
+            <div className="mt-8 flex flex-wrap items-end gap-6 border-t border-black/10 pt-6">
+              <div>
+                <p className="font-display text-3xl font-black text-black">6.5K+</p>
+                <p className="mt-0.5 font-mono text-[8px] uppercase tracking-[0.16em] text-black/45">
+                  Likes
+                </p>
+              </div>
+              <div>
+                <p className="font-display text-3xl font-black text-black">180M+</p>
+                <p className="mt-0.5 font-mono text-[8px] uppercase tracking-[0.16em] text-black/45">
+                  Fans reached
+                </p>
+              </div>
+              <a
+                href={BUNDESLIGA_IG}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="stamp-btn ml-auto inline-flex min-h-11 items-center justify-center bg-black px-6 py-3 font-display text-sm font-black uppercase tracking-[0.08em] text-cream transition-colors duration-fast hover:bg-accent hover:text-black"
+              >
+                Watch on IG →
+              </a>
+            </div>
+          </div>
+
+          <div className="relative border-t border-cream/15 bg-background p-4 md:p-5 lg:border-l lg:border-t-0">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 opacity-[0.12]"
+              style={{
+                backgroundImage:
+                  "radial-gradient(ellipse at 70% 20%, rgba(255,106,0,0.45), transparent 55%)",
+              }}
+            />
+            <div className="relative">
+              <InstagramEmbed
+                permalink={BUNDESLIGA_IG}
+                caption="Bundesliga Instagram — Shortlord campaign clip"
+              />
+            </div>
           </div>
         </div>
       </div>
