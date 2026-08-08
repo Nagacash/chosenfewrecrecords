@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { youtubeThumb } from "@/lib/youtube";
+import { notifyExternalMedia } from "@/lib/ambient";
 
 export function VideoCard({ id, title }: { id: string; title: string }) {
   const [playing, setPlaying] = useState(false);
@@ -10,13 +11,16 @@ export function VideoCard({ id, title }: { id: string; title: string }) {
   return (
     <button
       type="button"
-      onClick={() => setPlaying(true)}
+      onClick={() => {
+        notifyExternalMedia();
+        setPlaying(true);
+      }}
       className="group relative aspect-video w-full overflow-hidden bg-surface2 text-left"
       aria-label={`Play ${title}`}
     >
       {playing ? (
         <iframe
-          src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`}
+          src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&enablejsapi=1`}
           title={title}
           allow="autoplay; fullscreen"
           allowFullScreen
@@ -28,7 +32,7 @@ export function VideoCard({ id, title }: { id: string; title: string }) {
             src={youtubeThumb(id)}
             alt={title}
             fill
-            sizes="(max-width:768px) 100vw, 25vw"
+            sizes="(max-width:768px) 50vw, 25vw"
             className="object-cover brightness-[0.65] transition duration-500 group-hover:scale-105 group-hover:brightness-90"
           />
           <div className="absolute inset-0 flex flex-col justify-between bg-gradient-to-t from-black/90 via-transparent to-transparent p-3">

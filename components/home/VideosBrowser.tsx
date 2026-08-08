@@ -7,6 +7,7 @@ import { useGSAP } from "@gsap/react";
 import { Link } from "@/i18n/navigation";
 import type { CuratedVideo } from "@/lib/youtube";
 import { youtubeThumb, YOUTUBE_CHANNEL } from "@/lib/youtube";
+import { notifyExternalMedia } from "@/lib/ambient";
 
 gsap.registerPlugin(useGSAP);
 
@@ -128,7 +129,7 @@ export function VideosBrowser({
             <div className="relative aspect-video bg-black">
               {playing ? (
                 <iframe
-                  src={`https://www.youtube-nocookie.com/embed/${active.id}?autoplay=1&rel=0&modestbranding=1`}
+                  src={`https://www.youtube-nocookie.com/embed/${active.id}?autoplay=1&rel=0&modestbranding=1&enablejsapi=1`}
                   title={active.title}
                   allow="autoplay; fullscreen"
                   allowFullScreen
@@ -137,7 +138,10 @@ export function VideosBrowser({
               ) : (
                 <button
                   type="button"
-                  onClick={() => setPlaying(true)}
+                  onClick={() => {
+                    notifyExternalMedia();
+                    setPlaying(true);
+                  }}
                   className="group absolute inset-0"
                   aria-label={`Play ${active.title}`}
                 >
