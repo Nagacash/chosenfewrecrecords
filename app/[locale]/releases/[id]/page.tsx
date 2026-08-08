@@ -57,7 +57,7 @@ export default async function ReleaseDetailPage({
             <div className="mb-8">
               <SpotifyEmbed
                 spotify={spotify}
-                size={spotify.type === "album" ? "list" : "standard"}
+                size="standard"
                 title={`${release.title} on Spotify`}
               />
               <a

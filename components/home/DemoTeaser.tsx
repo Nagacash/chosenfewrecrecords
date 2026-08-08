@@ -40,7 +40,7 @@ export async function DemoTeaser() {
             />
             <button
               type="submit"
-              className="stamp-btn mt-2 self-start bg-accent px-9 py-4 font-display text-sm font-black uppercase tracking-[0.08em] text-black transition-colors duration-fast hover:bg-accent-hover"
+              className="stamp-btn mt-2 inline-flex min-h-12 w-full items-center justify-center self-start bg-accent px-9 py-4 font-display text-sm font-black uppercase tracking-[0.08em] text-black transition-colors duration-fast hover:bg-accent-hover sm:w-auto"
             >
               {t("submit")}
             </button>

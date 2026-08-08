@@ -35,7 +35,19 @@
   },
   "Catalogue": {
     "label": "03 — Catalogue",
-    "empty": "Releases loading…"
+    "headline": "The Crate",
+    "empty": "Nothing in this shelf…",
+    "all": "All",
+    "listen": "On Spotify",
+    "count": "{count} cuts",
+    "open": "Open release",
+    "onSpotify": "Open in Spotify",
+    "pick": "Now selected",
+    "archive": "Archive cut — not on Spotify yet",
+    "shelf2020s": "2020s · Now",
+    "shelf2010s": "2010s",
+    "shelf2000s": "2000s",
+    "shelf1990s": "90s · Origins"
   },
   "Artist": {
     "label": "04 — The Artist",

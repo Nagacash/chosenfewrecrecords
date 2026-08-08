@@ -38,7 +38,7 @@ export async function ArtistSpread() {
 
       <div className="flex flex-col justify-center bg-background px-5 py-16 md:px-12 md:py-24">
         <SectionLabel>{t("label")}</SectionLabel>
-        <h2 className="font-display text-[clamp(64px,8vw,120px)] uppercase leading-[0.82] tracking-tight text-white">
+        <h2 className="font-display text-[clamp(48px,14vw,120px)] uppercase leading-[0.82] tracking-tight text-white">
           Short
           <br />
           <span className="text-accent">lord</span>
@@ -90,10 +90,10 @@ export async function ArtistSpread() {
           ))}
         </div>
 
-        <div className="mt-8 flex flex-wrap gap-3">
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <Link
             href="/artists/shortlord"
-            className="stamp-btn inline-block bg-accent px-9 py-3.5 font-display text-sm font-black uppercase tracking-[0.08em] text-black transition-colors duration-fast hover:bg-accent-hover"
+            className="stamp-btn inline-flex min-h-11 w-full items-center justify-center bg-accent px-9 py-3.5 font-display text-sm font-black uppercase tracking-[0.08em] text-black transition-colors duration-fast hover:bg-accent-hover sm:w-auto"
           >
             {t("cta")}
           </Link>
@@ -101,7 +101,7 @@ export async function ArtistSpread() {
             href={DISCOGS_ARTIST_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block border-2 border-white/15 px-6 py-3.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted transition-colors duration-fast hover:border-accent hover:text-accent"
+            className="inline-flex min-h-11 w-full items-center justify-center border-2 border-white/15 px-6 py-3.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted transition-colors duration-fast hover:border-accent hover:text-accent sm:w-auto"
           >
             Discogs →
           </a>

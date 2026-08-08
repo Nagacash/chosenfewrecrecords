@@ -95,7 +95,7 @@ export async function FeaturedRelease({ release }: { release: Release }) {
             </ul>
             <a
               href="#releases-grid"
-              className="stamp-btn inline-block bg-accent px-9 py-3.5 font-display text-sm font-black uppercase tracking-[0.08em] text-black transition-colors duration-fast hover:bg-accent-hover"
+              className="stamp-btn inline-flex min-h-11 w-full items-center justify-center bg-accent px-9 py-3.5 font-display text-sm font-black uppercase tracking-[0.08em] text-black transition-colors duration-fast hover:bg-accent-hover sm:w-auto"
             >
               {t("catalogue")}
             </a>

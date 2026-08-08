@@ -16,7 +16,7 @@ export function SpotifyEmbed({
   title = "Spotify player",
 }: SpotifyEmbedProps) {
   const height =
-    size === "compact" ? 80 : size === "list" || spotify.type === "album" ? 352 : 152;
+    size === "compact" ? 80 : size === "list" ? 352 : 152;
 
   return (
     <div className={`overflow-hidden bg-black ${className}`}>

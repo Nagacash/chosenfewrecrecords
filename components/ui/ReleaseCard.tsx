@@ -7,9 +7,12 @@ import { SpotifyEmbed } from "@/components/ui/SpotifyEmbed";
 export function ReleaseCard({
   release,
   featured = false,
+  showPlayer = false,
 }: {
   release: Release;
   featured?: boolean;
+  /** Keep false in dense grids — use CatalogueBrowser focus stage instead */
+  showPlayer?: boolean;
 }) {
   const yearLine =
     release.meta ||
@@ -67,7 +70,7 @@ export function ReleaseCard({
         </div>
       </Link>
 
-      {spotify ? (
+      {showPlayer && spotify ? (
         <SpotifyEmbed
           spotify={spotify}
           size="compact"
