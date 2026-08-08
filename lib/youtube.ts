@@ -9,6 +9,10 @@ export const CURATED_VIDEOS: CuratedVideo[] = [
     title: "Eric I.Q. Gray feat. Shortlord — The Fight",
   },
   {
+    id: "fZIARWt8FGU",
+    title: "ShortLord feat. Daddy Freddy — Move 2 da Beat",
+  },
+  {
     id: "p2Y2WTUlVUM",
     title: "ShortLord — Mardi Gras (Official Video)",
   },
@@ -84,6 +88,7 @@ export const YOUTUBE_UPLOADS_PLAYLIST = "UUtLZrDerwIF9LjeVYqtTmLA";
 /** Catalogue releases listen-able on YouTube when Spotify isn’t available */
 export const YOUTUBE_CATALOGUE: Record<string, string> = {
   "mardi-gras": "p2Y2WTUlVUM",
+  "move-2-da-beat": "fZIARWt8FGU",
   "ways-of-mankind": "L7R1oiGEO8k",
   "guyana-girl": "6Wcrvn_Y4FQ",
   "wie-wir-leben": "7_1L910qh-E",

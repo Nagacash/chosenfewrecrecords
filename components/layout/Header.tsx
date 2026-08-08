@@ -7,6 +7,7 @@ import { LanguageSwitcher } from "./LanguageSwitcher";
 import { BrandMark } from "@/components/ui/BrandMark";
 
 const PRIMARY = [
+  { href: "/", key: "home" as const },
   { href: "/releases", key: "releases" as const },
   { href: "/artists/shortlord", key: "artist" as const },
   { href: "/videos", key: "videos" as const },

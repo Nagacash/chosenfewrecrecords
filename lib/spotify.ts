@@ -9,12 +9,12 @@ export type SpotifyRef = {
  */
 export const SPOTIFY_CATALOGUE: Record<string, SpotifyRef> = {
   "top-floor": { type: "track", id: "6le1yldGcYXZGFXgAAkBFR" },
-  "nice-n-sweet": { type: "track", id: "3FtEbi6bqBK5HixAEgOV9z" },
+  "nice-n-sweet": { type: "album", id: "2jBcSbPg8mZrhTPuJYAR9O" },
   ayree: { type: "album", id: "5iWsmJfGPjcFr1BuQRaq6z" },
-  "run-di-city": { type: "track", id: "4wgLpXy4TVjfB807SktNNC" },
+  "run-di-city": { type: "album", id: "5p22JxQv2wveFlw0lNzOTu" },
   ganja: { type: "track", id: "4Y80kbRgwgQAPRLFoVvQna" },
   "hustle-hard": { type: "album", id: "2nYWvKLDp3eQHMF4SMdWFv" },
-  spirits: { type: "track", id: "4Vk40wPxd5kB2PHJxrfY81" },
+  spirits: { type: "album", id: "6kCxo4wuQrtZbCVe6A4RO8" },
   "genug-ist-genug": { type: "album", id: "2874ianwzho6d3jdrdj0Mz" },
 };
 

@@ -3,6 +3,7 @@ import { Link } from "@/i18n/navigation";
 import { PARTNERS } from "@/lib/content";
 import { SOCIAL } from "@/lib/social";
 import { BrandMark } from "@/components/ui/BrandMark";
+import { FlagGuyane } from "@/components/ui/Flags";
 
 export async function Footer() {
   const t = await getTranslations("Footer");
@@ -19,9 +20,14 @@ export async function Footer() {
           <p className="max-w-xs font-display text-xl font-bold uppercase leading-snug text-muted">
             {t("tagline")}
           </p>
-          <p className="mt-3 font-mono text-[9px] uppercase tracking-[0.18em] text-cream/40">
-            Guyane · Chicago · Hamburg
-          </p>
+          <div className="mt-3 flex items-center gap-3">
+            <div className="overflow-hidden border border-cream/25 shadow-[0_4px_12px_rgba(0,0,0,0.4)]">
+              <FlagGuyane className="h-6 w-9 block" title="Guyane" />
+            </div>
+            <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-cream/40">
+              Guyane · Chicago · Hamburg
+            </p>
+          </div>
         </div>
 
         <div>
@@ -29,6 +35,11 @@ export async function Footer() {
             {t("navigate")}
           </div>
           <ul className="space-y-2.5">
+            <li>
+              <Link href="/" className="font-display text-sm font-bold uppercase text-muted hover:text-accent">
+                Home
+              </Link>
+            </li>
             <li>
               <Link href="/releases" className="font-display text-sm font-bold uppercase text-muted hover:text-accent">
                 Releases

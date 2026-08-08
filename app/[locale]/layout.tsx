@@ -42,9 +42,33 @@ export async function generateMetadata({
   params: { locale: string };
 }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "Meta" });
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://chosenfewrecords.com";
+
   return {
+    metadataBase: new URL(siteUrl),
     title: t("title"),
     description: t("description"),
+    openGraph: {
+      title: t("title"),
+      description: t("description"),
+      type: "website",
+      locale,
+      images: [
+        {
+          url: "/og-shortlord.jpg",
+          width: 732,
+          height: 488,
+          alt: "Shortlord — Chosenfewrecords",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("description"),
+      images: ["/og-shortlord.jpg"],
+    },
   };
 }
 

@@ -87,7 +87,7 @@ export const ARTIST = {
     },
     {
       year: "2006",
-      text: "Founds and owns Chosenfewrecords. Heaven Sent — CD Album. Prod. Farhot · feat. Daddy Freddy, Nneka.",
+      text: "Founds and owns Chosenfewrecords. Heaven Sent — first official Chosenfew CD in national German stores. Distro: Rough Trade / Omnimedia. Prod. Farhot · feat. Daddy Freddy, Nneka.",
       badge: "Owner",
       href: "https://www.discogs.com/release/6958959",
       linkLabel: "Discogs",
@@ -106,7 +106,7 @@ export const ARTIST = {
     },
     {
       year: "2009",
-      text: "King Of Da City · Move 2 da Beat.",
+      text: "King Of Da City · Move 2 da Beat (feat. Daddy Freddy).",
       badge: "Main",
     },
     {
@@ -173,7 +173,7 @@ export const COLLABS = [
   {
     name: "Daddy Freddy",
     origin: "UK / Jamaica",
-    track: "Heaven Sent LP (2006)",
+    track: "Move 2 da Beat · Heaven Sent LP (2006)",
     mark: "JM",
   },
   {

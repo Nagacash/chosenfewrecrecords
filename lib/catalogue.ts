@@ -32,11 +32,30 @@ const COVER_ART: Record<string, string> = {
   "hustle-hard": "/covers/hustle-hard.jpg",
   "field-nggah-thought": "/covers/haji-brown.jpg",
   "the-fight": "/covers/the-fight.jpg",
-  // Jentown Crhyme sleeves Shortlord is on
-  "wilder-westen": "/covers/jentown.jpg",
+  // Organized Crhyme Mixtape Vol. I — Jentown Crhyme Records
   "organized-crhyme-vol-1": "/covers/jentown.jpg",
   // Track from Return Of The Ancient One
   "guyana-girl": "/covers/return-of-the-ancient-one.jpg",
+  // Spotify sleeves (2026 + label)
+  "nice-n-sweet": "/covers/nice-n-sweet.jpg",
+  "run-di-city": "/covers/run-di-city.jpg",
+  ayree: "/covers/ayree.jpg",
+  spirits: "/covers/spirits.jpg",
+  "genug-ist-genug": "/covers/genug-ist-genug.jpg",
+  // Generated urban label sleeves (logo + plates)
+  "mardi-gras": "/covers/mardi-gras.jpg",
+  "move-2-da-beat": "/covers/move-2-da-beat.jpg",
+  "ways-of-mankind": "/covers/ways-of-mankind.jpg",
+  "wie-wir-leben": "/covers/wie-wir-leben.jpg",
+  beep: "/covers/beep.jpg",
+  kauzzenmukke: "/covers/kauzzenmukke.jpg",
+  "more-than-a-crew": "/covers/more-than-a-crew.jpg",
+  "wilder-westen": "/covers/wilder-westen.jpg",
+  nettoblaster: "/covers/nettoblaster.jpg",
+  "mysterious-mama": "/covers/mysterious-mama.jpg",
+  "black-rhapsody": "/covers/black-rhapsody.jpg",
+  "nana-album": "/covers/nana-album.jpg",
+  "illixit-work-pt9": "/covers/illixit-work-pt9.jpg",
 };
 
 function artworkFor(id: string, fallback = "/shortlord-photo.jpg") {
@@ -70,9 +89,14 @@ export const CATALOGUE: CatalogueItem[] = [
     artwork_url: artworkFor(r.id),
     release_date: yearToDate(r.year),
     format: r.format,
-    meta: r.year ? `${r.year} · ${r.format}` : r.format,
+    meta:
+      r.id === "heavensent"
+        ? "2006 · CD · Album · Rough Trade / Omnimedia · first Chosenfew national DE stores"
+        : r.year
+          ? `${r.year} · ${r.format}`
+          : r.format,
     discogsUrl: r.url,
-    tag: r.id === "heavensent" ? "Gold era" : undefined,
+    tag: r.id === "heavensent" ? "National stores" : undefined,
   })),
   ...DISCOGS_CREDITS.map((r) => ({
     id: r.id,

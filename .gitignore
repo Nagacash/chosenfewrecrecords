@@ -38,3 +38,6 @@ next-env.d.ts
 # Local package / OS junk
 ._*
 .DS_Store
+
+# Cover generation venv
+.venv-covers/

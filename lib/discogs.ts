@@ -114,13 +114,14 @@ export const DISCOGS_MAIN: DiscogsEntry[] = [
   {
     id: "move-2-da-beat",
     title: "Move 2 da Beat",
-    artist: "Shortlord",
+    artist: "Shortlord feat. Daddy Freddy",
     year: 2009,
     format: "File · MP3 · Maxi",
     role: "Main",
     discogsId: 35234764,
     url: "https://www.discogs.com/release/35234764",
     label: "Chosen Few Records (3)",
+    note: "Official video · feat. Daddy Freddy",
   },
   {
     id: "heavensent",
@@ -132,6 +133,7 @@ export const DISCOGS_MAIN: DiscogsEntry[] = [
     discogsId: 6958959,
     url: "https://www.discogs.com/release/6958959",
     label: "Chosen Few Records (3)",
+    note: "First official Chosenfew release in national German stores · Rough Trade / Omnimedia distribution",
   },
   {
     id: "crusade",
@@ -290,8 +292,9 @@ export const LABEL_EXTRA = [
     artist: "Shortlord",
     year: 2026,
     format: "Single",
+    artwork_url: "/covers/nice-n-sweet.jpg",
     streaming_links: {
-      spotify: "https://open.spotify.com/track/3FtEbi6bqBK5HixAEgOV9z",
+      spotify: "https://open.spotify.com/album/2jBcSbPg8mZrhTPuJYAR9O",
     },
   },
   {
@@ -300,6 +303,7 @@ export const LABEL_EXTRA = [
     artist: "Shortlord",
     year: 2026,
     format: "EP",
+    artwork_url: "/covers/ayree.jpg",
     streaming_links: {
       spotify: "https://open.spotify.com/album/5iWsmJfGPjcFr1BuQRaq6z",
     },
@@ -310,8 +314,9 @@ export const LABEL_EXTRA = [
     artist: "Shortlord",
     year: 2026,
     format: "Single",
+    artwork_url: "/covers/run-di-city.jpg",
     streaming_links: {
-      spotify: "https://open.spotify.com/track/4wgLpXy4TVjfB807SktNNC",
+      spotify: "https://open.spotify.com/album/5p22JxQv2wveFlw0lNzOTu",
     },
   },
   {
@@ -321,7 +326,7 @@ export const LABEL_EXTRA = [
     year: 2008,
     format: "Single · prod. Farhot",
     tag: "YouTube",
-    artwork_url: "/shortlord-photo.jpg",
+    artwork_url: "/covers/ways-of-mankind.jpg",
     streaming_links: {
       youtube: "https://www.youtube.com/watch?v=L7R1oiGEO8k",
     },
@@ -333,7 +338,7 @@ export const LABEL_EXTRA = [
     year: 2010,
     format: "Single · Official Video",
     tag: "YouTube",
-    artwork_url: "/shortlord-photo.jpg",
+    artwork_url: "/covers/return-of-the-ancient-one.jpg",
     streaming_links: {
       youtube: "https://www.youtube.com/watch?v=6Wcrvn_Y4FQ",
     },
@@ -345,7 +350,7 @@ export const LABEL_EXTRA = [
     year: 2009,
     format: "Chosenfewrecords · Official Video",
     tag: "YouTube",
-    artwork_url: "/shortlord-photo.jpg",
+    artwork_url: "/covers/wie-wir-leben.jpg",
     streaming_links: {
       youtube: "https://www.youtube.com/watch?v=7_1L910qh-E",
     },
@@ -368,6 +373,7 @@ export const LABEL_EXTRA = [
     artist: "King Kolera",
     year: 2012,
     format: "Chosenfewrecords",
+    artwork_url: "/covers/genug-ist-genug.jpg",
     streaming_links: {
       spotify: "https://open.spotify.com/album/2874ianwzho6d3jdrdj0Mz",
     },
