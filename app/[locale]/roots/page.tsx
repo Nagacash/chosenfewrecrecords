@@ -1,6 +1,5 @@
 import { setRequestLocale } from "next-intl/server";
 import { RootsMesh } from "@/components/home/RootsMesh";
-import { FlagBand } from "@/components/ui/Flags";
 
 export default async function RootsPage({
   params: { locale },
@@ -11,7 +10,6 @@ export default async function RootsPage({
 
   return (
     <div className="pt-16">
-      <FlagBand />
       <RootsMesh />
     </div>
   );
