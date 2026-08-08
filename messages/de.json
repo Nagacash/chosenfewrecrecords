@@ -1,0 +1,75 @@
+{
+  "Meta": {
+    "title": "Chosenfewrecords — Hamburg",
+    "description": "Unabhängiges Hip-Hop- und Caribbean-Label aus Hamburg. Seit 2006."
+  },
+  "Nav": {
+    "releases": "Releases",
+    "catalogue": "Katalog",
+    "artist": "Artist",
+    "features": "Features",
+    "videos": "Videos",
+    "label": "Label",
+    "demo": "Demo",
+    "partners": "Partner",
+    "badge": "Hamburg · Est. 2006"
+  },
+  "Hero": {
+    "eyebrow": "01 — Chosenfewrecords · Hamburg · Est. 2006",
+    "line1": "Chosen",
+    "line2": "Few",
+    "line3": "Records",
+    "sub": "Unabhängiger Hip-Hop & Caribbean Sound aus Hamburg — seit 2006 aus dem Underground.",
+    "ctaRelease": "Neuester Release",
+    "ctaVideos": "Videos ansehen"
+  },
+  "Featured": {
+    "label": "02 — Neuester Release",
+    "tag": "Neu — Chosenfewrecords · 2026",
+    "title": "Top Floor",
+    "artist": "Shortlord — Lo-fi House",
+    "catalogue": "Vollständiger Katalog"
+  },
+  "Catalogue": {
+    "label": "03 — Katalog",
+    "empty": "Releases werden geladen…"
+  },
+  "Artist": {
+    "label": "04 — Der Artist",
+    "role": "Artist · Producer · Owner & CEO · Chosenfewrecords",
+    "bio": "Shortlord ist der Owner von Chosenfewrecords. Wurzeln in Französisch-Guayana (Guyane), mit karibischer Linie auch nach Martinique und St. Lucia. US-Amerikaner väterlicherseits — Chicago. Aufgewachsen neben der Army Base in Hessen. Die Idee zu Black Angel Records kam von ihm — gegründet von Eric I.Q. Gray. „The Fight“ zuerst auf Black Angel, dann BMG-Pickup und massive MTV-Rotation in Deutschland 1998/1999. Chosenfewrecords seit 2006 — unabhängig, Hamburg, für immer.",
+    "cta": "Artist-Seite"
+  },
+  "Videos": {
+    "label": "06 — Video-Archiv",
+    "all": "Alle Videos → @chosenfewrecords"
+  },
+  "About": {
+    "label": "07 — Das Label",
+    "headline1": "Zwanzig",
+    "headline2": "Jahre.",
+    "headline3": "Hamburg.",
+    "headline4": "Unabhängig.",
+    "body": "Shortlord brachte Class Productions und Phantom Black Ende der 90er nach Boogiepark — eines der ersten echten Hip-Hop-Hotspots in Hamburg. Chosenfewrecords seit 2006: unabhängig, Hip-Hop × Caribbean, Rough-Trade-Ära, Labelförderung Hamburg — und weiter am Bauen."
+  },
+  "Demo": {
+    "label": "08 — Einreichen",
+    "headline": "Schick deine Demo.",
+    "sub": "Nur Links. Keine Anhänge. Wir hören alles. Antwort innerhalb von 4 Wochen.",
+    "name": "Dein Name",
+    "link": "SoundCloud / Streaming-Link",
+    "genre": "Genre / Style",
+    "message": "Kurze Nachricht (optional)",
+    "submit": "Demo senden"
+  },
+  "Footer": {
+    "tagline": "Independent Hip-Hop & Caribbean Music. Hamburg, Germany. Seit 2006.",
+    "navigate": "Navigation",
+    "connect": "Connect",
+    "partners": "Partner",
+    "officialPartner": "Offizieller Partner",
+    "copy": "© {year} Chosenfewrecords Hamburg — Alle Rechte vorbehalten",
+    "impressum": "Impressum",
+    "datenschutz": "Datenschutz"
+  }
+}
