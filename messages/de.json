@@ -1,7 +1,10 @@
 {
   "Meta": {
-    "title": "Chosenfewrecords — Hamburg",
-    "description": "Unabhängiges Hip-Hop- und Caribbean-Label aus Hamburg. Seit 2006."
+    "brand": "Chosenfewrecords",
+    "title": "Chosenfewrecords — Hip-Hop & Caribbean Label Hamburg",
+    "description": "Chosenfewrecords ist Shortlords unabhängiges Label für Hip-Hop und Caribbean Music aus Hamburg seit 2006. Erster bundesweiter Store-Release: Heaven Sent (Rough Trade / Omnimedia).",
+    "keywords": "Chosenfewrecords, Shortlord, Hamburg Hip-Hop, Caribbean Label, Heaven Sent, Nneka, Boogiepark, Rough Trade, Independent Label Deutschland",
+    "ogAlt": "Shortlord mit Nneka bei ihrem ersten Konzert — Chosenfewrecords Archiv"
   },
   "Nav": {
     "home": "Home",
@@ -65,7 +68,15 @@
     "headline2": "Jahre.",
     "headline3": "Hamburg.",
     "headline4": "Unabhängig.",
-    "body": "Shortlord brachte Class Productions und Phantom Black Ende der 90er nach Boogiepark — eines der ersten echten Hip-Hop-Hotspots in Hamburg. Chosenfewrecords seit 2006: unabhängig, Hip-Hop × Caribbean, Rough-Trade-Ära, Labelförderung Hamburg — und weiter am Bauen."
+    "answer": "Chosenfewrecords ist ein unabhängiges Hip-Hop- und Caribbean-Label aus Hamburg, seit 2006 im Besitz von Shortlord. Der erste offizielle CD-Release in bundesweiten Stores war Heaven Sent über Rough Trade / Omnimedia.",
+    "body": "Shortlord brachte Class Productions und Phantom Black Ende der 90er nach Boogiepark — eines der ersten echten Hip-Hop-Hotspots in Hamburg. Chosenfewrecords seit 2006: unabhängig, Hip-Hop × Caribbean, Rough-Trade-Ära, Labelförderung Hamburg — und weiter am Bauen.",
+    "faqTitle": "FAQ",
+    "faq1q": "Was ist Chosenfewrecords?",
+    "faq1a": "Ein unabhängiges Hamburger Label für Hip-Hop und Caribbean Music, 2006 von Shortlord gegründet und bis heute in seinem Besitz.",
+    "faq2q": "Wer ist Shortlord?",
+    "faq2a": "Shortlord ist ein Hamburger Hip-Hop-/Caribbean-Artist mit Wurzeln in Französisch-Guayana und Chicago-Linie. Er besitzt Chosenfewrecords und half, die Boogiepark-Szene aufzubauen.",
+    "faq3q": "Wo sitzt Chosenfewrecords?",
+    "faq3a": "Hamburg, Deutschland (20355). Offizieller Partner: NAGA Club."
   },
   "Demo": {
     "label": "08 — Einreichen",

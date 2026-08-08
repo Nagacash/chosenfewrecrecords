@@ -1,7 +1,10 @@
 {
   "Meta": {
-    "title": "Chosenfewrecords — Hamburg",
-    "description": "Independent hip-hop and Caribbean music label from Hamburg. Since 2006."
+    "brand": "Chosenfewrecords",
+    "title": "Chosenfewrecords — Hamburg Hip-Hop & Caribbean Label",
+    "description": "Chosenfewrecords is Shortlord’s independent Hamburg label for hip-hop and Caribbean music since 2006. First national German store release: Heaven Sent (Rough Trade / Omnimedia).",
+    "keywords": "Chosenfewrecords, Shortlord, Hamburg hip-hop, Caribbean music label, Heaven Sent, Nneka, Boogiepark, Rough Trade, independent label Germany",
+    "ogAlt": "Shortlord with Nneka at her first concert — Chosenfewrecords archive"
   },
   "Nav": {
     "home": "Home",
@@ -66,7 +69,15 @@
     "headline2": "Years.",
     "headline3": "Hamburg.",
     "headline4": "Independent.",
-    "body": "Shortlord was the one who brought Class Productions and Phantom Black to Boogiepark in the late 90s, turning it into one of Hamburg's first real hip-hop hotspots. Chosenfewrecords has been independent since 2006 — hip-hop × Caribbean, Rough Trade distribution era, Hamburg Labelförderung recognition, and still building."
+    "answer": "Chosenfewrecords is an independent hip-hop and Caribbean music label from Hamburg, owned by Shortlord since 2006. Its first official CD in national German stores was Heaven Sent, distributed by Rough Trade / Omnimedia.",
+    "body": "Shortlord was the one who brought Class Productions and Phantom Black to Boogiepark in the late 90s, turning it into one of Hamburg's first real hip-hop hotspots. Chosenfewrecords has been independent since 2006 — hip-hop × Caribbean, Rough Trade distribution era, Hamburg Labelförderung recognition, and still building.",
+    "faqTitle": "FAQ",
+    "faq1q": "What is Chosenfewrecords?",
+    "faq1a": "An independent Hamburg label for hip-hop and Caribbean music, founded and owned by Shortlord since 2006.",
+    "faq2q": "Who is Shortlord?",
+    "faq2a": "Shortlord is a Hamburg hip-hop / Caribbean artist with roots in French Guiana and Chicago lineage. He owns Chosenfewrecords and helped build the Boogiepark scene.",
+    "faq3q": "Where is Chosenfewrecords based?",
+    "faq3a": "Hamburg, Germany (20355). Official partner: NAGA Club."
   },
   "Demo": {
     "label": "08 — Submit",

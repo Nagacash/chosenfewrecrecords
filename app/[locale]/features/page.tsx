@@ -1,5 +1,6 @@
 import { setRequestLocale } from "next-intl/server";
 import { Collabs } from "@/components/home/Collabs";
+import { GhostfaceShoutout } from "@/components/home/GhostfaceShoutout";
 
 export default async function FeaturesPage({
   params: { locale },
@@ -10,6 +11,7 @@ export default async function FeaturesPage({
 
   return (
     <div className="pt-16">
+      <GhostfaceShoutout />
       <Collabs />
     </div>
   );

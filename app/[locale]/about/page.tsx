@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { getLocale, getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { SectionLabel } from "@/components/ui/SectionLabel";
@@ -7,6 +8,25 @@ import { ABOUT } from "@/lib/content";
 import { pickLocaleText } from "@/lib/locale";
 
 const BUNDESLIGA_IG = "https://www.instagram.com/tv/CYZCXOBoGmg/";
+
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: "About" });
+  const m = await getTranslations({ locale, namespace: "Meta" });
+  return {
+    title: t("faq1q").replace(/\?$/, ""),
+    description: t("answer"),
+    alternates: { canonical: `/${locale}/about` },
+    openGraph: {
+      title: `${m("brand")} — ${t("headline3")} ${t("headline4")}`,
+      description: t("answer"),
+      images: [{ url: "/og.jpg", width: 1200, height: 630, alt: m("ogAlt") }],
+    },
+  };
+}
 
 export default async function AboutPage({
   params: { locale },
@@ -18,15 +38,35 @@ export default async function AboutPage({
   const current = await getLocale();
   const body = pickLocaleText(ABOUT.body, current);
 
+  const faqs = [
+    { q: t("faq1q"), a: t("faq1a") },
+    { q: t("faq2q"), a: t("faq2a") },
+    { q: t("faq3q"), a: t("faq3a") },
+  ];
+
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
   return (
     <section className="relative overflow-hidden bg-background px-5 pb-20 pt-28 md:px-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+      />
       <div
         className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.08] saturate-50"
         style={{ backgroundImage: "url(/shortlord-photo.jpg)" }}
       />
       <div className="relative z-10 mx-auto max-w-6xl">
         <SectionLabel>{t("label")}</SectionLabel>
-        <h1 className="mb-10 max-w-[12ch] font-display text-[clamp(40px,8vw,80px)] font-black uppercase leading-[0.92] tracking-tight text-white">
+        <h1 className="mb-6 max-w-[12ch] font-display text-[clamp(40px,8vw,80px)] font-black uppercase leading-[0.92] tracking-tight text-white">
           {t("headline1")}
           <br />
           {t("headline2")}
@@ -35,6 +75,10 @@ export default async function AboutPage({
           <br />
           {t("headline4")}
         </h1>
+
+        <p className="mb-10 max-w-[60ch] border-l-[3px] border-accent bg-[rgba(255,106,0,0.06)] px-5 py-4 text-[16px] font-medium leading-relaxed text-cream/90">
+          {t("answer")}
+        </p>
 
         <div className="grid gap-10 md:grid-cols-2 md:gap-12">
           <div className="min-w-0">
@@ -197,7 +241,36 @@ export default async function AboutPage({
         </div>
       </div>
 
-      <div className="relative z-10 mx-auto mt-14 flex max-w-6xl flex-col gap-3 border-t border-cream/15 pt-8 sm:flex-row sm:flex-wrap">
+      <div className="relative z-10 mx-auto mt-14 max-w-6xl border border-cream/15 bg-surface px-5 py-8 md:px-8">
+        <h2
+          id="faq-heading"
+          className="font-display text-2xl font-black uppercase tracking-tight text-cream md:text-3xl"
+        >
+          {t("faqTitle")}
+        </h2>
+        <div className="mt-5 space-y-0" aria-labelledby="faq-heading">
+          {faqs.map((f) => (
+            <details
+              key={f.q}
+              className="group border-t border-cream/10 py-4 open:bg-cream/[0.02]"
+            >
+              <summary className="cursor-pointer list-none font-display text-base font-bold uppercase tracking-wide text-cream marker:content-none [&::-webkit-details-marker]:hidden">
+                <span className="flex items-center justify-between gap-4">
+                  {f.q}
+                  <span className="font-mono text-accent transition-transform group-open:rotate-45">
+                    +
+                  </span>
+                </span>
+              </summary>
+              <p className="mt-3 max-w-[60ch] text-[14px] leading-relaxed text-cream/70">
+                {f.a}
+              </p>
+            </details>
+          ))}
+        </div>
+      </div>
+
+      <div className="relative z-10 mx-auto mt-10 flex max-w-6xl flex-col gap-3 border-t border-cream/15 pt-8 sm:flex-row sm:flex-wrap">
         <Link
           href="/roots"
           className="inline-flex min-h-11 items-center justify-center border-2 border-caribbean/70 bg-caribbean/15 px-6 py-3 font-display text-sm font-bold uppercase tracking-[0.08em] text-cream transition-colors duration-fast hover:border-gold hover:text-gold"

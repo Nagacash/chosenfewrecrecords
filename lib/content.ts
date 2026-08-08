@@ -149,6 +149,16 @@ export const ARTIST = {
       linkLabel: "Watch",
     },
     {
+      year: "NAGA",
+      text: "Shortlord × NAGA Apparel Jam — Big Twins (Mobb Deep) Germany tour, Bonn · Cologne. Die P’s first concert; the promoter Shortlord hooked up becomes her manager. Years later, after her Hamburg show, Shortlord runs into the manager — he admits it all. Both making heat.",
+      badge: "Vision",
+    },
+    {
+      year: "Now",
+      text: "Shortlord and Lyn T — 30 years later in the Boogiepark studio where it all started. For Shortlord’s hustle.",
+      badge: "Boogiepark",
+    },
+    {
       year: "2024",
       text: "Ganja — Shortlord & Warrior Rapper School.",
       badge: "Main",
@@ -165,9 +175,16 @@ export const ARTIST = {
 
 export const COLLABS = [
   {
+    name: "Ghostface Killah",
+    origin: "Wu-Tang Clan · Staten Island",
+    track: "Shoutout to Chosenfewrecords / Shortlord",
+    mark: "WT",
+  },
+  {
     name: "Nneka",
     origin: "Nigeria",
-    track: "Petre La Tête & Heaven Sent LP",
+    track:
+      "First concert with mentor Shortlord (Tommy managing) · Petre La Tête & Heaven Sent LP",
     mark: "NG",
   },
   {
@@ -177,9 +194,24 @@ export const COLLABS = [
     mark: "JM",
   },
   {
+    name: "Die P",
+    origin: "Germany",
+    track:
+      "First concert at Shortlord × NAGA Jam (Big Twins DE tour) — manager hooked that night · now gaining traction; Hamburg run-in confirmed it",
+    mark: "DE",
+  },
+  {
+    name: "Lyn T",
+    origin: "Hamburg · Boogiepark",
+    track:
+      "Back in the Boogiepark studio with Shortlord — 30 years later · for Shortlord’s hustle",
+    mark: "HH",
+  },
+  {
     name: "Big Twins",
-    origin: "Queensbridge, NYC",
-    track: "Petre La Tête",
+    origin: "Queensbridge, NYC · Mobb Deep",
+    track:
+      "Petre La Tête · Germany tour via Shortlord / NAGA Jam (Bonn · Cologne)",
     mark: "NY",
   },
   {
@@ -250,6 +282,16 @@ export const ABOUT = {
       tone: "accent" as const,
       href: "https://www.instagram.com/tv/CYZCXOBoGmg/",
       linkLabel: "Watch the Clip",
+    },
+    {
+      label: "NAGA Jam · Die P · Big Twins",
+      body: "Shortlord × NAGA Apparel Jam on Big Twins’ (Mobb Deep) Germany tour — Bonn and Cologne: Die P’s first concert, and the night the promoter Shortlord hooked up became her manager. A current Hamburg photo after her show — Shortlord ran into that manager again and he admitted it all. Vision from Shortlord and NAGA Apparel; both making serious heat.",
+      tone: "accent" as const,
+    },
+    {
+      label: "Boogiepark · Lyn T · 30 years later",
+      body: "Shortlord and Lyn T back in the Boogiepark studio — the room where Hamburg hip-hop started for him — thirty years later. For Shortlord’s hustle.",
+      tone: "gold" as const,
     },
     {
       label: "Black Angel Records → BMG / MTV",

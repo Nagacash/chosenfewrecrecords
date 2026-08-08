@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { getLocale, getTranslations, setRequestLocale } from "next-intl/server";
 import { SectionLabel } from "@/components/ui/SectionLabel";
@@ -6,6 +7,25 @@ import { ARTIST } from "@/lib/content";
 import { DISCOGS_PROFILE } from "@/lib/discogs";
 import { pickLocaleText } from "@/lib/locale";
 import { SOCIAL } from "@/lib/social";
+
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  return {
+    title: "Shortlord — Hamburg Hip-Hop & Caribbean Artist",
+    description:
+      "Shortlord is a Hamburg hip-hop and Caribbean artist with roots in French Guiana and Chicago lineage. Owner of Chosenfewrecords since 2006.",
+    alternates: { canonical: `/${locale}/artists/shortlord` },
+    openGraph: {
+      title: "Shortlord — Chosenfewrecords",
+      description:
+        "Hamburg hip-hop × Caribbean. Owner of Chosenfewrecords. Guyane · Chicago · Hamburg.",
+      images: [{ url: "/og.jpg", width: 1200, height: 630 }],
+    },
+  };
+}
 
 export default async function ShortlordPage({
   params: { locale },
@@ -43,7 +63,12 @@ export default async function ShortlordPage({
             <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.25em] text-accent">
               {ARTIST.role}
             </p>
-            <p className="mt-8 max-w-[52ch] text-[15px] leading-relaxed text-cream/70">
+            <p className="mt-6 max-w-[52ch] border-l-[3px] border-accent pl-4 text-[15px] font-medium leading-relaxed text-cream/90">
+              Shortlord is a Hamburg hip-hop and Caribbean artist — roots in
+              French Guiana, Chicago on his father&apos;s side — and the owner of
+              Chosenfewrecords since 2006.
+            </p>
+            <p className="mt-5 max-w-[52ch] text-[15px] leading-relaxed text-cream/70">
               {bio}
             </p>
             <p className="mt-4 max-w-[52ch] text-[13px] leading-relaxed text-muted">

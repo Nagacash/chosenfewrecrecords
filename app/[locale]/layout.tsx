@@ -9,6 +9,8 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { AmbientProvider } from "@/components/audio/AmbientProvider";
 import { AmbientDock } from "@/components/audio/AmbientDock";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { SITE_URL } from "@/lib/site";
 
 const display = Archivo_Black({
   weight: "400",
@@ -42,24 +44,44 @@ export async function generateMetadata({
   params: { locale: string };
 }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "Meta" });
-  const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://chosenfewrecords.com";
+  const languages = Object.fromEntries(
+    routing.locales.map((l) => [l, `/${l}`]),
+  ) as Record<string, string>;
 
   return {
-    metadataBase: new URL(siteUrl),
-    title: t("title"),
+    metadataBase: new URL(SITE_URL),
+    title: {
+      default: t("title"),
+      template: `%s · ${t("brand")}`,
+    },
     description: t("description"),
+    keywords: t("keywords")
+      .split(",")
+      .map((k) => k.trim())
+      .filter(Boolean),
+    authors: [{ name: "Chosenfewrecords" }],
+    creator: "Chosenfewrecords",
+    publisher: "Chosenfewrecords",
+    alternates: {
+      canonical: `/${locale}`,
+      languages: {
+        ...languages,
+        "x-default": `/${routing.defaultLocale}`,
+      },
+    },
     openGraph: {
       title: t("title"),
       description: t("description"),
       type: "website",
       locale,
+      siteName: t("brand"),
+      url: `/${locale}`,
       images: [
         {
-          url: "/og-shortlord.jpg",
-          width: 732,
-          height: 488,
-          alt: "Shortlord — Chosenfewrecords",
+          url: "/og.jpg",
+          width: 1200,
+          height: 630,
+          alt: t("ogAlt"),
         },
       ],
     },
@@ -67,7 +89,17 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: t("title"),
       description: t("description"),
-      images: ["/og-shortlord.jpg"],
+      images: ["/og.jpg"],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
   };
 }
@@ -89,6 +121,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body className="min-h-screen bg-background font-body text-base leading-relaxed text-cream antialiased">
+        <JsonLd locale={locale} />
         <NextIntlClientProvider messages={messages}>
           <AmbientProvider>
             <Header />
