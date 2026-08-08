@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
 import type { Release } from "@/lib/toolost";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 
