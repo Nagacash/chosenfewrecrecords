@@ -2,7 +2,7 @@
 
 import { useAmbient } from "./AmbientProvider";
 
-/** Fixed beat control — opt-in (browsers block unmuted autoplay). */
+/** Fixed beat control — tries autoplay; tap page once if the browser blocks it. */
 export function AmbientDock() {
   const { playing, toggle } = useAmbient();
 
@@ -24,7 +24,7 @@ export function AmbientDock() {
           }`}
           aria-hidden
         />
-        <span>{playing ? "Beat on" : "Beat"}</span>
+        <span>{playing ? "Beat on" : "Tap for beat"}</span>
         <span className="hidden text-muted sm:inline" aria-hidden>
           · Viby
         </span>

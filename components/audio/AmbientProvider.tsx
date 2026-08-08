@@ -41,36 +41,8 @@ export function AmbientProvider({ children }: { children: ReactNode }) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [playing, setPlaying] = useState(false);
   const [ready, setReady] = useState(false);
-  const userEnabledRef = useRef(false);
-
-  useEffect(() => {
-    const audio = new Audio();
-    audio.preload = "none";
-    audio.loop = true;
-    audio.volume = 0.28;
-    audio.setAttribute("controlsList", "nodownload noplaybackrate");
-    audio.setAttribute("disableRemotePlayback", "true");
-    // Keep out of easy download UX; never append to DOM as <a>
-    audioRef.current = audio;
-
-    const onPlay = () => setPlaying(true);
-    const onPause = () => setPlaying(false);
-    const onCanPlay = () => setReady(true);
-
-    audio.addEventListener("play", onPlay);
-    audio.addEventListener("pause", onPause);
-    audio.addEventListener("canplay", onCanPlay);
-
-    return () => {
-      audio.pause();
-      audio.removeAttribute("src");
-      audio.load();
-      audio.removeEventListener("play", onPlay);
-      audio.removeEventListener("pause", onPause);
-      audio.removeEventListener("canplay", onCanPlay);
-      audioRef.current = null;
-    };
-  }, []);
+  /** User hit pause on the dock — don't force-restart */
+  const userPausedRef = useRef(false);
 
   const pause = useCallback(() => {
     const audio = audioRef.current;
@@ -81,7 +53,7 @@ export function AmbientProvider({ children }: { children: ReactNode }) {
   const play = useCallback(() => {
     const audio = audioRef.current;
     if (!audio) return;
-    userEnabledRef.current = true;
+    userPausedRef.current = false;
     if (!audio.src) {
       audio.src = AMBIENT_STREAM;
     }
@@ -91,11 +63,63 @@ export function AmbientProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const toggle = useCallback(() => {
-    if (playing) pause();
-    else play();
+    if (playing) {
+      userPausedRef.current = true;
+      pause();
+    } else {
+      play();
+    }
   }, [playing, pause, play]);
 
-  // YouTube postMessage + our external-media event
+  useEffect(() => {
+    const audio = new Audio();
+    audio.preload = "auto";
+    audio.loop = true;
+    audio.volume = 0.28;
+    audio.src = AMBIENT_STREAM;
+    audio.setAttribute("controlsList", "nodownload noplaybackrate");
+    audio.setAttribute("disableRemotePlayback", "true");
+    audioRef.current = audio;
+
+    const onPlay = () => setPlaying(true);
+    const onPause = () => setPlaying(false);
+    const onCanPlay = () => setReady(true);
+
+    audio.addEventListener("play", onPlay);
+    audio.addEventListener("pause", onPause);
+    audio.addEventListener("canplay", onCanPlay);
+
+    const unlockEvents = ["pointerdown", "keydown", "touchstart"] as const;
+    const unlock = () => {
+      if (userPausedRef.current) return;
+      void audio.play().catch(() => {});
+      for (const ev of unlockEvents) {
+        window.removeEventListener(ev, unlock, true);
+      }
+    };
+
+    // Try unmuted autoplay; if the browser blocks it, start on first tap/key
+    void audio.play().catch(() => {
+      for (const ev of unlockEvents) {
+        window.addEventListener(ev, unlock, { capture: true, passive: true });
+      }
+    });
+
+    return () => {
+      for (const ev of unlockEvents) {
+        window.removeEventListener(ev, unlock, true);
+      }
+      audio.pause();
+      audio.removeAttribute("src");
+      audio.load();
+      audio.removeEventListener("play", onPlay);
+      audio.removeEventListener("pause", onPause);
+      audio.removeEventListener("canplay", onCanPlay);
+      audioRef.current = null;
+    };
+  }, []);
+
+  // YouTube postMessage + Spotify / video unlock
   useEffect(() => {
     const onExternal = () => {
       pause();
@@ -118,7 +142,6 @@ export function AmbientProvider({ children }: { children: ReactNode }) {
       if (!data || typeof data !== "object") return;
 
       const payload = data as { event?: string; info?: number | string };
-      // 1 = playing
       if (payload.event === "onStateChange" && payload.info === 1) {
         pause();
       }
