@@ -11,14 +11,12 @@ const PRIMARY = [
   { href: "/releases", key: "releases" as const },
   { href: "/artists/shortlord", key: "artist" as const },
   { href: "/videos", key: "videos" as const },
+  { href: "/roots", key: "roots" as const },
   { href: "/about", key: "label" as const },
   { href: "/demo", key: "demo" as const },
 ];
 
-const MORE = [
-  { href: "/features", key: "features" as const },
-  { href: "/roots", key: "roots" as const },
-];
+const MORE = [{ href: "/features", key: "features" as const }];
 
 function isActive(pathname: string, href: string) {
   if (href === "/") return pathname === "/";

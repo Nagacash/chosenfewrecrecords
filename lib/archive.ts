@@ -12,6 +12,15 @@ export type ArchiveShot = {
 /** Chosenfewrecords archive — back in the days + now */
 export const ARCHIVE_SHOTS: ArchiveShot[] = [
   {
+    src: "/photos/archive/2ruff-1995.jpg",
+    alt: "2ruff — Ya Ready? vinyl sleeve, 1995",
+    era: "then",
+    caption: "2ruff · Ya Ready? · 1995",
+    span: "square",
+    story:
+      "1995 — 2ruff “Ya Ready?” (Metronome / Polydor). Shortlord’s first heat on the B-side.",
+  },
+  {
     src: "/photos/archive/img_4080.jpg",
     alt: "Chosen Few Records merch — lion logo sweatshirt",
     era: "then",
