@@ -28,7 +28,7 @@ QUICK START
 
 KEY DETAILS
 -----------
-Address:   Maurice Holda, Chosenfewrecords, Steintorwall 4, 20099 Hamburg
+Address:   Maurice Holda, Chosenfewrecords, 20355 Hamburg
 Email:     chosenfewrecords@hotmail.de
 YouTube:   youtube.com/@chosenfewrecords (Channel ID: UCtLZrDerwIF9LjeVYqtTmLA)
 Spotify:   open.spotify.com/artist/114s8gxO8QBSQnvDFSa9nj

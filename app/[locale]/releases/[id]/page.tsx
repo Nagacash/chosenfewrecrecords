@@ -2,7 +2,10 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { getRelease } from "@/lib/toolost";
+import { getSpotifyForRelease, spotifyOpenUrl } from "@/lib/spotify";
+import { SOCIAL } from "@/lib/social";
 import { Link } from "@/i18n/navigation";
+import { SpotifyEmbed } from "@/components/ui/SpotifyEmbed";
 
 export default async function ReleaseDetailPage({
   params: { locale, id },
@@ -12,6 +15,8 @@ export default async function ReleaseDetailPage({
   setRequestLocale(locale);
   const release = await getRelease(id);
   if (!release) notFound();
+
+  const spotify = getSpotifyForRelease(release);
 
   return (
     <section className="bg-background px-5 pb-20 pt-28 md:px-10">
@@ -47,6 +52,37 @@ export default async function ReleaseDetailPage({
               {release.tag}
             </span>
           ) : null}
+
+          {spotify ? (
+            <div className="mb-8">
+              <SpotifyEmbed
+                spotify={spotify}
+                size={spotify.type === "album" ? "list" : "standard"}
+                title={`${release.title} on Spotify`}
+              />
+              <a
+                href={spotifyOpenUrl(spotify)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-block font-mono text-[10px] uppercase tracking-[0.18em] text-accent hover:underline"
+              >
+                Open in Spotify →
+              </a>
+            </div>
+          ) : (
+            <p className="mb-8 font-mono text-[10px] uppercase tracking-[0.14em] text-muted">
+              Not on Spotify yet —{" "}
+              <a
+                href={SOCIAL.spotifyArtist}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent hover:underline"
+              >
+                browse Shortlord
+              </a>
+            </p>
+          )}
+
           <Link
             href="/releases"
             className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent hover:underline"

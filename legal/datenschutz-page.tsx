@@ -1,6 +1,6 @@
 // app/[locale]/datenschutz/page.tsx
 // Drop this file into your Next.js App Router project at that path.
-// Fill in Steintorwall 4, 20099, Hamburg, chosenfewrecords@hotmail.de before going live.
+// Address: 20355 Hamburg · chosenfewrecords@hotmail.de
 // This policy covers: contact/demo form, YouTube nocookie embeds, no analytics.
 // If you later add analytics (Plausible, GA, etc.), update Section 5.
 
@@ -35,8 +35,7 @@ export default function DatenschutzPage() {
           <p className="mt-3">
             Maurice Holda<br />
             Chosenfewrecords<br />
-            Steintorwall 4<br />
-            20099 Hamburg<br />
+            20355 Hamburg<br />
             Deutschland<br />
             E-Mail:{' '}
             <a href="mailto:chosenfewrecords@hotmail.de" className="text-[#FF6A00] hover:underline">

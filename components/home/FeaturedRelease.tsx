@@ -1,19 +1,21 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import type { Release } from "@/lib/toolost";
+import { SOCIAL } from "@/lib/social";
+import { getSpotifyForRelease } from "@/lib/spotify";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { SpotifyEmbed } from "@/components/ui/SpotifyEmbed";
 import { Stamp } from "@/components/ui/Stamp";
 
 export async function FeaturedRelease({ release }: { release: Release }) {
   const t = await getTranslations("Featured");
+  const spotify = getSpotifyForRelease(release);
 
   const streams = [
     {
       key: "spotify",
       label: "Spotify",
-      href:
-        release.streaming_links?.spotify ||
-        "https://open.spotify.com/artist/114s8gxO8QBSQnvDFSa9nj",
+      href: release.streaming_links?.spotify || SOCIAL.spotifyArtist,
     },
     {
       key: "apple",
@@ -33,7 +35,10 @@ export async function FeaturedRelease({ release }: { release: Release }) {
   ];
 
   return (
-    <section id="releases" className="scroll-mt-20 bg-background px-5 py-[var(--section-y)] md:px-10 md:py-[var(--section-y-lg)]">
+    <section
+      id="releases"
+      className="scroll-mt-20 bg-background px-5 py-[var(--section-y)] md:px-10 md:py-[var(--section-y-lg)]"
+    >
       <SectionLabel>{t("label")}</SectionLabel>
 
       <div className="mt-2 grid border border-cream/15 md:grid-cols-2">
@@ -65,6 +70,15 @@ export async function FeaturedRelease({ release }: { release: Release }) {
           </div>
 
           <div className="bg-surface p-8 md:p-10">
+            {spotify ? (
+              <div className="mb-8">
+                <SpotifyEmbed
+                  spotify={spotify}
+                  size="standard"
+                  title={`${release.title} on Spotify`}
+                />
+              </div>
+            ) : null}
             <ul className="mb-8 space-y-2.5">
               {streams.map((s) => (
                 <li key={s.key}>

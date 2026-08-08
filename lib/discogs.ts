@@ -281,7 +281,7 @@ export const LABEL_EXTRA = [
     tag: "New",
     artwork_url: "/top-floor-cover.png",
     streaming_links: {
-      spotify: "https://open.spotify.com/artist/114s8gxO8QBSQnvDFSa9nj",
+      spotify: "https://open.spotify.com/track/6le1yldGcYXZGFXgAAkBFR",
     },
   },
   {
@@ -290,6 +290,9 @@ export const LABEL_EXTRA = [
     artist: "Shortlord",
     year: 2026,
     format: "Single",
+    streaming_links: {
+      spotify: "https://open.spotify.com/track/3FtEbi6bqBK5HixAEgOV9z",
+    },
   },
   {
     id: "ayree",
@@ -297,6 +300,9 @@ export const LABEL_EXTRA = [
     artist: "Shortlord",
     year: 2026,
     format: "EP",
+    streaming_links: {
+      spotify: "https://open.spotify.com/album/5iWsmJfGPjcFr1BuQRaq6z",
+    },
   },
   {
     id: "run-di-city",
@@ -304,6 +310,9 @@ export const LABEL_EXTRA = [
     artist: "Shortlord",
     year: 2026,
     format: "Single",
+    streaming_links: {
+      spotify: "https://open.spotify.com/track/4wgLpXy4TVjfB807SktNNC",
+    },
   },
   {
     id: "field-nggah-thought",
@@ -318,6 +327,9 @@ export const LABEL_EXTRA = [
     artist: "King Kolera",
     year: 2012,
     format: "Chosenfewrecords",
+    streaming_links: {
+      spotify: "https://open.spotify.com/album/2874ianwzho6d3jdrdj0Mz",
+    },
   },
   {
     id: "beep",

@@ -3,7 +3,7 @@ export const PARTNERS = [
     name: "NAGA Club",
     url: "https://nagaclub.de",
     role: "Official Partner",
-    note: "Hamburg · Steintorwall 4 · Street culture & nights",
+    note: "20355 Hamburg · Street culture & nights",
   },
 ] as const;
 
@@ -272,7 +272,7 @@ export const ABOUT = {
     },
     {
       label: "Official Partner — NAGA Club",
-      body: "Chosenfewrecords' official partner. NAGA Club Hamburg — Steintorwall 4. Street culture, nights, and the same house frequency.",
+      body: "Chosenfewrecords' official partner. NAGA Club — 20355 Hamburg. Street culture, nights, and the same house frequency.",
       tone: "gold" as const,
       href: "https://nagaclub.de",
       linkLabel: "nagaclub.de",

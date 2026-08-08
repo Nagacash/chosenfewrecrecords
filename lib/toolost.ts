@@ -1,4 +1,5 @@
 import { CATALOGUE } from "./catalogue";
+import { getSpotifyForRelease, spotifyOpenUrl } from "./spotify";
 
 export type StreamingLinks = {
   spotify?: string;
@@ -90,19 +91,34 @@ async function toolostFetch<T>(path: string): Promise<T | null> {
   }
 }
 
+function withSpotifyLinks(release: Release): Release {
+  const spotify = getSpotifyForRelease(release);
+  if (!spotify) return release;
+  return {
+    ...release,
+    streaming_links: {
+      ...release.streaming_links,
+      spotify: spotifyOpenUrl(spotify),
+    },
+  };
+}
+
 /** Static fallback when Too Lost is not configured / unavailable */
-export const STATIC_RELEASES: Release[] = CATALOGUE.map((r) => ({ ...r }));
+export const STATIC_RELEASES: Release[] = CATALOGUE.map((r) =>
+  withSpotifyLinks({ ...r }),
+);
 
 export async function getReleases(): Promise<Release[]> {
   const data = await toolostFetch<{ data?: Release[] }>("/releases");
-  if (data?.data?.length) return data.data;
+  if (data?.data?.length) return data.data.map(withSpotifyLinks);
   return STATIC_RELEASES;
 }
 
 export async function getRelease(id: string): Promise<Release | null> {
   const data = await toolostFetch<{ data?: Release }>(`/releases/${id}`);
-  if (data?.data) return data.data;
-  return STATIC_RELEASES.find((r) => r.id === id) ?? null;
+  if (data?.data) return withSpotifyLinks(data.data);
+  const local = STATIC_RELEASES.find((r) => r.id === id) ?? null;
+  return local;
 }
 
 export async function getFeaturedRelease(): Promise<Release> {

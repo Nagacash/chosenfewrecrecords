@@ -1,6 +1,6 @@
 // app/[locale]/impressum/page.tsx
 // Drop this file into your Next.js App Router project at that path.
-// Fill in Steintorwall 4, 20099, Hamburg, [TELEFON], chosenfewrecords@hotmail.de before going live.
+// Address: 20355 Hamburg · chosenfewrecords@hotmail.de
 
 import type { Metadata } from 'next'
 
@@ -31,8 +31,7 @@ export default function ImpressumPage() {
           <p className="text-sm leading-relaxed opacity-80">
             Maurice Holda<br />
             Chosenfewrecords<br />
-            Steintorwall 4<br />
-            20099 Hamburg<br />
+            20355 Hamburg<br />
             Deutschland
           </p>
         </section>
@@ -67,8 +66,7 @@ export default function ImpressumPage() {
           </h2>
           <p className="text-sm leading-relaxed opacity-80">
             Maurice Holda<br />
-            Steintorwall 4<br />
-            20099 Hamburg
+            20355 Hamburg
           </p>
         </section>
 

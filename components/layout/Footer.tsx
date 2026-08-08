@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { PARTNERS } from "@/lib/content";
+import { SOCIAL } from "@/lib/social";
 import { BrandMark } from "@/components/ui/BrandMark";
 
 export async function Footer() {
@@ -68,22 +69,32 @@ export async function Footer() {
           <ul className="space-y-2.5">
             <li>
               <a
-                href="https://www.youtube.com/@chosenfewrecords"
+                href={SOCIAL.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-display text-sm font-bold uppercase text-muted hover:text-accent"
               >
-                YouTube
+                Instagram
               </a>
             </li>
             <li>
               <a
-                href="https://open.spotify.com/artist/114s8gxO8QBSQnvDFSa9nj"
+                href={SOCIAL.spotifyArtist}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-display text-sm font-bold uppercase text-muted hover:text-accent"
               >
                 Spotify
+              </a>
+            </li>
+            <li>
+              <a
+                href={SOCIAL.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-display text-sm font-bold uppercase text-muted hover:text-accent"
+              >
+                YouTube
               </a>
             </li>
           </ul>
