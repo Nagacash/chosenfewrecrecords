@@ -1,4 +1,5 @@
 import { getLocale, getTranslations, setRequestLocale } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { ABOUT } from "@/lib/content";
 import { pickLocaleText } from "@/lib/locale";
@@ -122,6 +123,27 @@ export default async function AboutPage({
             </div>
           ))}
         </div>
+      </div>
+
+      <div className="relative z-10 mx-auto mt-14 flex max-w-6xl flex-col gap-3 border-t border-cream/15 pt-8 sm:flex-row sm:flex-wrap">
+        <Link
+          href="/roots"
+          className="inline-flex min-h-11 items-center justify-center border-2 border-caribbean/70 bg-caribbean/15 px-6 py-3 font-display text-sm font-bold uppercase tracking-[0.08em] text-cream transition-colors duration-fast hover:border-gold hover:text-gold"
+        >
+          Roots →
+        </Link>
+        <Link
+          href="/features"
+          className="inline-flex min-h-11 items-center justify-center border-2 border-cream/30 px-6 py-3 font-display text-sm font-bold uppercase tracking-[0.08em] text-cream transition-colors duration-fast hover:border-accent hover:text-accent"
+        >
+          Features →
+        </Link>
+        <Link
+          href="/demo"
+          className="stamp-btn inline-flex min-h-11 items-center justify-center bg-accent px-6 py-3 font-display text-sm font-black uppercase tracking-[0.08em] text-black transition-colors duration-fast hover:bg-accent-hover"
+        >
+          Demo →
+        </Link>
       </div>
     </section>
   );

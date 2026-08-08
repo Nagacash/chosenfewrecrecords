@@ -45,13 +45,18 @@ export async function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/#about" className="font-display text-sm font-bold uppercase text-muted hover:text-accent">
-                Label
+              <Link href="/about" className="font-display text-sm font-bold uppercase text-muted hover:text-accent">
+                About
               </Link>
             </li>
             <li>
-              <Link href="/about" className="font-display text-sm font-bold uppercase text-muted hover:text-accent">
-                About Page
+              <Link href="/features" className="font-display text-sm font-bold uppercase text-muted hover:text-accent">
+                Features
+              </Link>
+            </li>
+            <li>
+              <Link href="/roots" className="font-display text-sm font-bold uppercase text-muted hover:text-accent">
+                Roots
               </Link>
             </li>
             <li>

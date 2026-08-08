@@ -11,7 +11,7 @@ export default async function ArtistsPage({
   setRequestLocale(locale);
 
   return (
-    <section className="bg-background px-5 pb-20 pt-28 md:px-10">
+    <section className="bg-background px-5 pb-20 pt-28 md:px-10 md:pt-32">
       <SectionLabel>Roster</SectionLabel>
       <Link
         href="/artists/shortlord"

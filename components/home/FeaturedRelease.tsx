@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import type { Release } from "@/lib/toolost";
 import { SOCIAL } from "@/lib/social";
 import { getSpotifyForRelease } from "@/lib/spotify";
@@ -93,12 +94,12 @@ export async function FeaturedRelease({ release }: { release: Release }) {
                 </li>
               ))}
             </ul>
-            <a
-              href="#releases-grid"
+            <Link
+              href="/releases"
               className="stamp-btn inline-flex min-h-11 w-full items-center justify-center bg-accent px-9 py-3.5 font-display text-sm font-black uppercase tracking-[0.08em] text-black transition-colors duration-fast hover:bg-accent-hover sm:w-auto"
             >
               {t("catalogue")}
-            </a>
+            </Link>
           </div>
         </div>
       </div>

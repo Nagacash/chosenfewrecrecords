@@ -1,85 +1,68 @@
 "use client";
 
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
-import { usePathname, useRouter } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { BrandMark } from "@/components/ui/BrandMark";
 
 const PRIMARY = [
-  { hash: "releases", key: "releases" as const },
-  { hash: "artist", key: "artist" as const },
-  { hash: "about", key: "label" as const },
-  { hash: "demo", key: "demo" as const },
+  { href: "/releases", key: "releases" as const },
+  { href: "/artists/shortlord", key: "artist" as const },
+  { href: "/videos", key: "videos" as const },
+  { href: "/about", key: "label" as const },
+  { href: "/demo", key: "demo" as const },
 ];
 
 const MORE = [
-  { hash: "roots", key: "roots" as const },
-  { hash: "releases-grid", key: "catalogue" as const },
-  { hash: "collabs", key: "features" as const },
-  { hash: "videos", key: "videos" as const },
-  { hash: "partners", key: "partners" as const },
+  { href: "/features", key: "features" as const },
+  { href: "/roots", key: "roots" as const },
 ];
 
-function scrollToHash(hash: string) {
-  const el = document.getElementById(hash);
-  if (!el) return false;
-  el.scrollIntoView({ behavior: "smooth", block: "start" });
-  return true;
+function isActive(pathname: string, href: string) {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
 }
 
 export function Header() {
   const t = useTranslations("Nav");
-  const locale = useLocale();
   const pathname = usePathname();
-  const router = useRouter();
   const [open, setOpen] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
 
-  const goToSection = (hash: string) => {
+  const linkClass = (active: boolean) =>
+    `inline-flex min-h-11 items-center px-1 font-mono text-[10px] uppercase tracking-[0.2em] transition-colors duration-fast ${
+      active ? "text-accent" : "text-white/55 hover:text-accent"
+    }`;
+
+  const closeMenus = () => {
     setOpen(false);
     setMoreOpen(false);
-
-    if (pathname === "/") {
-      if (scrollToHash(hash)) {
-        window.history.replaceState(null, "", `/${locale}#${hash}`);
-      }
-      return;
-    }
-
-    router.push(`/#${hash}`);
-    window.setTimeout(() => scrollToHash(hash), 120);
-    window.setTimeout(() => scrollToHash(hash), 400);
   };
-
-  const linkClass =
-    "inline-flex min-h-11 items-center px-1 font-mono text-[10px] uppercase tracking-[0.2em] text-white/55 transition-colors duration-fast hover:text-accent";
 
   return (
     <header className="fixed inset-x-0 top-0 z-nav border-b border-cream/10 bg-background/90 backdrop-blur-md">
       <div className="roots-stripe h-0.5 w-full" />
       <nav className="flex h-[4.25rem] items-center justify-between gap-3 px-5 md:px-10">
-        <BrandMark size="nav" />
+        <BrandMark size="nav" href="/" />
 
         <ul className="hidden items-center gap-5 lg:flex">
           {PRIMARY.map((link) => (
-            <li key={link.hash}>
-              <a
-                href={`/${locale}#${link.hash}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  goToSection(link.hash);
-                }}
-                className={linkClass}
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                className={linkClass(isActive(pathname, link.href))}
               >
                 {t(link.key)}
-              </a>
+              </Link>
             </li>
           ))}
           <li className="relative">
             <button
               type="button"
-              className={linkClass}
+              className={linkClass(
+                MORE.some((l) => isActive(pathname, l.href)),
+              )}
               aria-expanded={moreOpen}
               onClick={() => setMoreOpen((v) => !v)}
             >
@@ -88,17 +71,18 @@ export function Header() {
             {moreOpen ? (
               <ul className="absolute right-0 top-full mt-2 min-w-[10rem] border-2 border-white/10 bg-background py-1 shadow-[0_12px_40px_rgba(0,0,0,0.6)]">
                 {MORE.map((link) => (
-                  <li key={link.hash}>
-                    <a
-                      href={`/${locale}#${link.hash}`}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        goToSection(link.hash);
-                      }}
-                      className="block px-4 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70 transition-colors hover:bg-surface2 hover:text-accent"
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      onClick={closeMenus}
+                      className={`block px-4 py-3 font-mono text-[10px] uppercase tracking-[0.18em] transition-colors hover:bg-surface2 hover:text-accent ${
+                        isActive(pathname, link.href)
+                          ? "text-accent"
+                          : "text-white/70"
+                      }`}
                     >
                       {t(link.key)}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -131,24 +115,25 @@ export function Header() {
         </div>
       </nav>
 
-      {open && (
+      {open ? (
         <ul className="border-t-2 border-white/[0.08] bg-background px-5 py-2 lg:hidden">
           {[...PRIMARY, ...MORE].map((link) => (
-            <li key={link.hash} className="border-b border-white/[0.06]">
-              <a
-                href={`/${locale}#${link.hash}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  goToSection(link.hash);
-                }}
-                className="flex min-h-12 items-center font-mono text-[11px] uppercase tracking-[0.22em] text-white/85"
+            <li key={link.href} className="border-b border-white/[0.06]">
+              <Link
+                href={link.href}
+                onClick={closeMenus}
+                className={`flex min-h-12 items-center font-mono text-[11px] uppercase tracking-[0.22em] ${
+                  isActive(pathname, link.href)
+                    ? "text-accent"
+                    : "text-white/85"
+                }`}
               >
                 {t(link.key)}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
-      )}
+      ) : null}
     </header>
   );
 }

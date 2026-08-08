@@ -68,13 +68,13 @@ export async function Hero() {
 
         <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <Link
-            href="/#releases"
+            href="/releases"
             className="stamp-btn inline-flex min-h-12 w-full items-center justify-center bg-accent px-9 py-4 font-display text-sm font-black uppercase tracking-[0.08em] text-black transition-colors duration-fast hover:bg-accent-hover sm:w-auto"
           >
             {t("ctaRelease")}
           </Link>
           <Link
-            href="/#roots"
+            href="/roots"
             className="inline-flex min-h-12 w-full items-center justify-center border-2 border-caribbean/80 bg-caribbean/20 px-9 py-4 font-display text-sm font-bold uppercase tracking-[0.08em] text-cream transition-colors duration-fast hover:border-gold hover:text-gold sm:w-auto"
           >
             Roots

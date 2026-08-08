@@ -18,9 +18,9 @@ export default async function ShortlordPage({
 
   return (
     <>
-      <section className="min-h-screen bg-background">
+      <section className="min-h-screen bg-background pt-16">
         <div className="grid md:grid-cols-2">
-          <div className="relative min-h-[50vh] md:min-h-screen">
+          <div className="relative min-h-[50vh] md:min-h-[calc(100vh-4rem)]">
             <Image
               src="/shortlord-photo.jpg"
               alt="Shortlord"
