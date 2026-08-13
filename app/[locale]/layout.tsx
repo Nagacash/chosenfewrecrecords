@@ -3,6 +3,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Archivo_Black, Outfit, Space_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { routing } from "@/i18n/routing";
 import { isAppLocale } from "@/lib/locale";
 import { Header } from "@/components/layout/Header";
@@ -130,6 +131,7 @@ export default async function LocaleLayout({
             <AmbientDock />
           </AmbientProvider>
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );
